@@ -95,16 +95,11 @@
             <!-- Logo -->
             <div class="cursor-pointer active:scale-95 transition-transform" onclick="resetView()">
                 <h1 class="text-xl sm:text-2xl font-light tracking-[0.2em] silver-gradient-text uppercase">Seobin's Gallery</h1>
-                <p class="text-[9px] tracking-[0.25em] text-silver-300/70 uppercase -mt-0.5">Silver Art Collection</p>
+                <p class="text-[9px] tracking-[0.25em] text-silver-300/70 uppercase -mt-0.5">정서빈 ART COLLECTION</p>
             </div>
 
             <!-- PC Actions -->
             <div class="hidden md:flex items-center gap-3">
-                <button onclick="openSupabaseModal()" class="flex items-center gap-1.5 px-3 py-1.5 text-[11px] uppercase tracking-wider border border-silver-700 text-silver-300 hover:text-white hover:border-silver-400 transition-all rounded-sm">
-                    <i data-lucide="database" class="w-3.5 h-3.5 text-emerald-400"></i>
-                    <span>Supabase 설정</span>
-                </button>
-
                 <button onclick="handleUploadClick()" class="flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest border border-silver-300/40 text-silver-100 hover:bg-silver-200 hover:text-black transition-all rounded-sm">
                     <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                     <span>작품 등록</span>
@@ -119,9 +114,6 @@
             
             <!-- Mobile Quick Buttons -->
             <div class="md:hidden flex items-center gap-2">
-                <button onclick="openSupabaseModal()" class="p-2 text-silver-300 border border-silver-700 rounded-sm active:bg-silver-800">
-                    <i data-lucide="database" class="w-4 h-4 text-emerald-400"></i>
-                </button>
                 <button onclick="handleUploadClick()" class="p-2 text-silver-200 border border-silver-600 rounded-sm active:bg-silver-800">
                     <i data-lucide="plus" class="w-5 h-5"></i>
                 </button>
@@ -131,7 +123,7 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-10 flex-grow w-full space-y-12 md:space-y-16">
 
-        <!-- Selected Highlights -->
+        <!-- Selected Highlights (1 col x 3 rows) -->
         <section>
             <div class="flex items-center justify-between mb-4 md:mb-6">
                 <h2 class="text-xs uppercase tracking-[0.25em] text-silver-200 flex items-center gap-2">
@@ -140,8 +132,59 @@
                 <span class="text-xs font-light text-silver-400">주요 수작 콜렉션</span>
             </div>
 
-            <div id="mainHighlightsGrid" class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+            <div id="mainHighlightsGrid" class="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
                 <!-- JS Dynamic Render -->
+            </div>
+        </section>
+
+        <!-- Artist Profile & Statement -->
+        <section id="artistBioSection" class="border-t border-silver-800/80 pt-10">
+            <div class="bg-silver-950/90 border border-silver-800/80 p-6 md:p-8 rounded-sm relative overflow-hidden">
+                <div id="editBioBtnArea" class="absolute top-4 right-4">
+                    <!-- Dynamic Edit Button for Seobin -->
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
+                    <!-- Photo Frame with Correct Aspect Ratio -->
+                    <div class="flex justify-center">
+                        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-silver-400/80 shadow-2xl bg-black/80 flex items-center justify-center p-1">
+                            <img id="bioPhoto" src="1_2.png" alt="정서빈 작가" 
+                                 onerror="this.src='1.png'"
+                                 class="w-full h-full object-cover object-center rounded-full transition-all duration-300">
+                        </div>
+                    </div>
+
+                    <!-- Bio Text & Career -->
+                    <div class="md:col-span-2 space-y-4 text-center md:text-left">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-silver-400 block font-sans">Fine Artist</span>
+                            <h2 id="bioName" class="text-xl md:text-2xl font-light text-silver-100 tracking-wider">정서빈 (Jung Seobin)</h2>
+                        </div>
+
+                        <p id="bioStatement" class="text-xs md:text-sm text-silver-300 leading-relaxed font-light font-sans bg-silver-900/40 p-4 border-l-2 border-silver-400 rounded-r-sm">
+                            "은빛 입자와 깊은 질감으로 조율하는 침묵과 빛의 울림. 캔버스 위에 시간의 궤적을 겹겹이 쌓아 올려 관람객에게 내면적 고요와 형이상학적 미학을 선사합니다."
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans text-silver-400 pt-1">
+                            <div class="bg-silver-900/60 p-3 border border-silver-800/80 rounded-sm">
+                                <h4 class="text-silver-200 font-semibold mb-1 border-b border-silver-800 pb-1 text-[11px] uppercase tracking-wider">주요 연혁 및 학력</h4>
+                                <ul id="bioCareerList" class="space-y-1 text-[11px] font-light text-silver-300">
+                                    <li>• 홍익대학교 미술대학 회화과 졸업</li>
+                                    <li>• 개인전 6회 (서울, 부산, 파리)</li>
+                                    <li>• 현대 미술 유화&아크릴 신진작가상 수상</li>
+                                </ul>
+                            </div>
+                            <div class="bg-silver-900/60 p-3 border border-silver-800/80 rounded-sm">
+                                <h4 class="text-silver-200 font-semibold mb-1 border-b border-silver-800 pb-1 text-[11px] uppercase tracking-wider">대표 전시 및 소장</h4>
+                                <ul id="bioExhibitionsList" class="space-y-1 text-[11px] font-light text-silver-300">
+                                    <li>• 2026 서울 아트페어 초대전</li>
+                                    <li>• 2025 은빛 울림의 공간 갤러리 기획전</li>
+                                    <li>• 국립현대미술관 외 다수 소장</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -222,37 +265,39 @@
 
     <!-- MODALS -->
 
-    <!-- Supabase Setup Modal -->
-    <div id="supabaseModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-silver-950 border border-silver-700 w-full max-w-md p-6 rounded-sm relative">
-            <button onclick="closeModal('supabaseModal')" class="absolute top-4 right-4 text-silver-400 hover:text-white p-1">
+    <!-- Edit Profile Modal (For Seobin) -->
+    <div id="editBioModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-silver-950 border border-silver-700 w-full max-w-lg p-6 rounded-sm relative max-h-[85vh] overflow-y-auto">
+            <button onclick="closeModal('editBioModal')" class="absolute top-4 right-4 text-silver-400 hover:text-white p-1">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            
-            <div class="flex items-center gap-2 mb-3">
-                <i data-lucide="database" class="w-5 h-5 text-emerald-400"></i>
-                <h3 class="text-sm font-light text-silver-100 uppercase tracking-widest">Supabase DB 연동 설정</h3>
-            </div>
-            <p class="text-[11px] text-silver-400 mb-4 leading-relaxed">Supabase 대시보드(Project Settings > API)의 URL과 anon key를 입력하시면 데이터가 슈파베이스 DB에 안전하게 연동 및 보관됩니다.</p>
+            <h3 class="text-base font-light text-silver-100 uppercase tracking-widest mb-4 border-b border-silver-800 pb-2">작가 프로필 수정</h3>
 
-            <form onsubmit="saveSupabaseConfig(event)" class="space-y-3.5 text-xs">
+            <form onsubmit="handleSaveBio(event)" class="space-y-3.5 text-xs">
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">Project URL *</label>
-                    <input type="url" id="spUrl" placeholder="https://xyzcompany.supabase.co" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">작가 성명 / 영문명</label>
+                    <input type="text" id="editBioName" required class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">Anon API Key *</label>
-                    <input type="password" id="spKey" placeholder="eyJhbGciOiJIUzI1NiIsIn..." class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">프로필 사진 파일 (선택)</label>
+                    <input type="file" id="editBioPhotoFile" accept="image/*" class="w-full bg-silver-900 border border-silver-800 p-2 text-silver-300 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-silver-800 file:text-silver-200">
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">Artist Statement (작가 철학)</label>
+                    <textarea id="editBioStatement" rows="3" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">연혁 및 학력 (줄바꿈 구분)</label>
+                    <textarea id="editBioCareer" rows="3" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">전시 및 소장 (줄바꿈 구분)</label>
+                    <textarea id="editBioExhibitions" rows="3" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
                 </div>
 
-                <div class="pt-2 flex flex-col gap-2">
-                    <button type="submit" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold uppercase tracking-widest text-xs transition-all">
-                        연동 및 저장하기
-                    </button>
-                    <button type="button" onclick="copySupabaseSQL()" class="w-full py-2 border border-silver-800 hover:border-silver-600 text-silver-400 hover:text-silver-200 text-[11px] transition-all flex items-center justify-center gap-1">
-                        <i data-lucide="code" class="w-3.5 h-3.5"></i>
-                        <span>DB 테이블 생성 SQL 복사</span>
-                    </button>
+                <div class="pt-3 flex justify-end gap-2">
+                    <button type="button" onclick="closeModal('editBioModal')" class="px-4 py-2 border border-silver-800 text-silver-400 text-xs">취소</button>
+                    <button type="submit" class="px-5 py-2 bg-silver-200 text-black hover:bg-white font-semibold text-xs active:opacity-90">저장하기</button>
                 </div>
             </form>
         </div>
@@ -417,7 +462,7 @@
                 </div>
                 <div>
                     <label class="block uppercase tracking-wider text-silver-400 mb-1 text-[10px]">프로필 사진 파일 선택 (선택)</label>
-                    <input type="file" id="signupPhotoFile" accept="image/*" class="w-full bg-silver-900 border border-silver-800 p-2 rounded-sm text-silver-300 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-silver-800 file:text-silver-200 hover:file:bg-silver-700 cursor-pointer">
+                    <input type="file" id="signupPhotoFile" accept="image/*" class="w-full bg-silver-900 border border-silver-800 p-2 rounded-sm text-silver-300 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-silver-800 file:text-silver-200 cursor-pointer">
                 </div>
                 <button type="submit" class="w-full py-2.5 bg-silver-200 text-black hover:bg-white font-semibold uppercase tracking-widest mt-2 active:opacity-90">가입 완료</button>
             </form>
@@ -432,6 +477,15 @@
     <script>
         // Supabase Client Instance
         let supabaseClient = null;
+
+        // Artist Profile Data
+        let artistProfile = {
+            name: '정서빈 (Jung Seobin)',
+            photoUrl: '1_2.png',
+            statement: '"은빛 입자와 깊은 질감으로 조율하는 침묵과 빛의 울림. 캔버스 위에 시간의 궤적을 겹겹이 쌓아 올려 관람객에게 내면적 고요와 형이상학적 미학을 선사합니다."',
+            career: ['• 홍익대학교 미술대학 회화과 졸업', '• 개인전 6회 (서울, 부산, 파리)', '• 현대 미술 유화&아크릴 신진작가상 수상'],
+            exhibitions: ['• 2026 서울 아트페어 초대전', '• 2025 은빛 울림의 공간 갤러리 기획전', '• 국립현대미술관 외 다수 소장']
+        };
 
         // Default Sample Artworks
         let artworks = [
@@ -509,18 +563,31 @@
         ];
 
         let currentUser = null;
-        let selectedYear = 'ALL';
+        let selectedYear = '2026';
         let currentActiveArtwork = null;
 
         window.onload = async function() {
             lucide.createIcons();
             initSupabase();
             await fetchFromSupabase();
+            
+            const availableYears = [...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
+            if (availableYears.length > 0 && !availableYears.includes(2026)) {
+                selectedYear = availableYears[0].toString();
+            }
+
             renderHighlights();
+            renderBioUI();
             renderYearFilters();
             renderYearlyArchive();
             renderMessages();
         };
+
+        function isSeobinAuthor() {
+            if (!currentUser) return false;
+            const normalized = currentUser.name.trim().toLowerCase();
+            return normalized === '정서빈' || normalized === '서빈' || normalized === 'seobin';
+        }
 
         function initSupabase() {
             const url = localStorage.getItem('sb_url');
@@ -537,7 +604,6 @@
         async function fetchFromSupabase() {
             if (!supabaseClient) return;
             try {
-                // Fetch Artworks
                 const { data: artData, error: artErr } = await supabaseClient
                     .from('artworks')
                     .select('*')
@@ -557,7 +623,6 @@
                     }));
                 }
 
-                // Fetch Messages
                 const { data: msgData, error: msgErr } = await supabaseClient
                     .from('messages')
                     .select('*')
@@ -576,103 +641,114 @@
             }
         }
 
-        function openSupabaseModal() {
-            document.getElementById('spUrl').value = localStorage.getItem('sb_url') || '';
-            document.getElementById('spKey').value = localStorage.getItem('sb_key') || '';
-            document.getElementById('supabaseModal').classList.remove('hidden');
+        function renderBioUI() {
+            document.getElementById('bioName').innerText = artistProfile.name;
+            document.getElementById('bioStatement').innerText = artistProfile.statement;
+            
+            const photoEl = document.getElementById('bioPhoto');
+            if (photoEl) {
+                photoEl.src = artistProfile.photoUrl;
+                photoEl.onerror = function() {
+                    this.src = '1.png';
+                };
+            }
+
+            const careerList = document.getElementById('bioCareerList');
+            if (careerList) {
+                careerList.innerHTML = artistProfile.career.map(c => `<li>${c}</li>`).join('');
+            }
+
+            const exList = document.getElementById('bioExhibitionsList');
+            if (exList) {
+                exList.innerHTML = artistProfile.exhibitions.map(e => `<li>${e}</li>`).join('');
+            }
+
+            const editArea = document.getElementById('editBioBtnArea');
+            if (editArea) {
+                if (isSeobinAuthor()) {
+                    editArea.innerHTML = `
+                        <button onclick="openEditBioModal()" class="px-3 py-1.5 text-[11px] bg-silver-800/80 border border-silver-600 hover:border-silver-300 text-silver-100 transition-all rounded-sm flex items-center gap-1.5">
+                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                            <span>프로필 수정</span>
+                        </button>
+                    `;
+                } else {
+                    editArea.innerHTML = '';
+                }
+            }
+            lucide.createIcons();
         }
 
-        function saveSupabaseConfig(e) {
+        function openEditBioModal() {
+            document.getElementById('editBioName').value = artistProfile.name;
+            document.getElementById('editBioStatement').value = artistProfile.statement;
+            document.getElementById('editBioCareer').value = artistProfile.career.join('\n');
+            document.getElementById('editBioExhibitions').value = artistProfile.exhibitions.join('\n');
+            document.getElementById('editBioModal').classList.remove('hidden');
+        }
+
+        function handleSaveBio(e) {
             e.preventDefault();
-            const url = document.getElementById('spUrl').value.trim();
-            const key = document.getElementById('spKey').value.trim();
-            localStorage.setItem('sb_url', url);
-            localStorage.setItem('sb_key', key);
-            initSupabase();
-            fetchFromSupabase().then(() => {
-                renderHighlights();
-                renderYearFilters();
-                renderYearlyArchive();
-                renderMessages();
-                closeModal('supabaseModal');
-                showToast('Supabase 연동이 저장되었습니다.');
-            });
-        }
+            artistProfile.name = document.getElementById('editBioName').value.trim();
+            artistProfile.statement = document.getElementById('editBioStatement').value.trim();
+            
+            const careerText = document.getElementById('editBioCareer').value.trim();
+            artistProfile.career = careerText ? careerText.split('\n').filter(l => l.trim() !== '') : [];
 
-        function copySupabaseSQL() {
-            const sql = `-- Supabase SQL
-create table if not exists public.artworks (
-    id bigint primary key generated always as identity,
-    title text not null,
-    year integer not null,
-    price text,
-    image_url text not null,
-    video_url text,
-    meta text,
-    description text,
-    is_sold boolean default false,
-    created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
+            const exText = document.getElementById('editBioExhibitions').value.trim();
+            artistProfile.exhibitions = exText ? exText.split('\n').filter(l => l.trim() !== '') : [];
 
-create table if not exists public.messages (
-    id bigint primary key generated always as identity,
-    name text not null,
-    content text not null,
-    date text not null,
-    created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
+            const fileInput = document.getElementById('editBioPhotoFile');
+            if (fileInput && fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    artistProfile.photoUrl = evt.target.result;
+                    renderBioUI();
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                renderBioUI();
+            }
 
-alter table public.artworks enable row level security;
-alter table public.messages enable row level security;
-create policy "Public Artworks" on public.artworks for all using (true) with check (true);
-create policy "Public Messages" on public.messages for all using (true) with check (true);`;
-
-            const ta = document.createElement('textarea');
-            ta.value = sql;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-            showToast('SQL 쿼리가 클립보드에 복사되었습니다!');
+            closeModal('editBioModal');
+            showToast('작가 프로필이 저장되었습니다.');
         }
 
         function resetView() {
-            selectedYear = 'ALL';
+            const years = [...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
+            selectedYear = years.includes(2026) ? '2026' : (years[0] ? years[0].toString() : 'ALL');
             renderYearFilters();
             renderYearlyArchive();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function isSeobinAuthor() {
-            if (!currentUser) return false;
-            const normalized = currentUser.name.trim().toLowerCase();
-            return normalized === '정서빈' || normalized === '서빈' || normalized === 'seobin';
-        }
-
         function renderHighlights() {
             const grid = document.getElementById('mainHighlightsGrid');
             if (!grid) return;
-            const highlights = artworks.slice(0, 6);
+            const highlights = artworks.slice(0, 3);
 
             grid.innerHTML = highlights.map(art => `
-                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-silver-900/40 border border-silver-800 hover:border-silver-400 transition-all rounded-sm overflow-hidden flex flex-col">
-                    <div class="relative aspect-[4/3] w-full overflow-hidden bg-black/60">
+                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-silver-900/40 border border-silver-800 hover:border-silver-400 transition-all rounded-sm overflow-hidden flex flex-col md:flex-row">
+                    <div class="relative aspect-[16/10] md:w-1/2 overflow-hidden bg-black/60">
                         <img src="${art.imageUrl}" alt="${art.title}" 
                              onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80'"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         ${art.isSold ? `
                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                <span class="sold-out-stamp px-2.5 py-0.5 text-[10px] font-bold">SOLD OUT</span>
+                                <span class="sold-out-stamp px-3 py-1 text-xs font-bold">SOLD OUT</span>
                             </div>
                         ` : ''}
-                        <div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-sm text-[9px] px-2 py-0.5 text-silver-300 font-sans tracking-widest border border-silver-700/50">
+                        <div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-sm text-[10px] px-2.5 py-0.5 text-silver-300 font-sans tracking-widest border border-silver-700/50">
                             ${art.year}
                         </div>
                     </div>
-                    <div class="p-3 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h3 class="text-xs sm:text-sm font-normal text-silver-100 group-hover:text-white transition-colors truncate">${art.title}</h3>
-                            <p class="text-[10px] text-silver-400 truncate mt-0.5 font-sans">${art.meta}</p>
+                    <div class="p-5 md:w-1/2 flex flex-col justify-center space-y-3">
+                        <span class="text-[10px] uppercase tracking-widest text-silver-400 font-sans">Featured Masterpiece</span>
+                        <h3 class="text-lg md:text-xl font-normal text-silver-100 group-hover:text-white transition-colors">${art.title}</h3>
+                        <p class="text-xs text-silver-300 font-sans font-light leading-relaxed line-clamp-3">${art.description || art.meta}</p>
+                        <div class="pt-2 text-[11px] text-silver-400 font-sans flex items-center gap-1">
+                            <span>자세히 감상하기</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
                         </div>
                     </div>
                 </div>
@@ -684,18 +760,19 @@ create policy "Public Messages" on public.messages for all using (true) with che
             const container = document.getElementById('yearFilters');
             if (!container) return;
 
-            const years = ['ALL', ...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
+            const years = [...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
+            const allTabs = [...years.map(y => y.toString()), 'ALL'];
 
-            container.innerHTML = years.map(yr => {
-                const isActive = (yr === selectedYear || (yr === 'ALL' && selectedYear === 'ALL'));
+            container.innerHTML = allTabs.map(yr => {
+                const isActive = (yr === selectedYear.toString());
                 return `
                     <button onclick="filterByYear('${yr}')" 
-                        class="px-3 py-1 text-[11px] font-sans transition-all whitespace-nowrap rounded-sm border ${
+                        class="px-3.5 py-1.5 text-[11px] font-sans transition-all whitespace-nowrap rounded-sm border ${
                             isActive 
-                            ? 'bg-silver-200 text-black border-silver-200 font-semibold' 
+                            ? 'bg-silver-200 text-black border-silver-200 font-semibold shadow-md' 
                             : 'bg-silver-900/60 text-silver-400 border-silver-800 hover:border-silver-500'
                         }">
-                        ${yr === 'ALL' ? '전체 보기 (ALL)' : yr + '년'}
+                        ${yr === 'ALL' ? '전체 보기' : yr + '년 작품'}
                     </button>
                 `;
             }).join('');
@@ -717,7 +794,7 @@ create policy "Public Messages" on public.messages for all using (true) with che
             }
 
             if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-10 text-xs text-silver-500 font-sans">해당 연도의 전시 작품이 존재하지 않습니다.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-xs text-silver-500 font-sans">${selectedYear}년도 전시 작품이 존재하지 않습니다.</div>`;
                 return;
             }
 
@@ -939,19 +1016,20 @@ create policy "Public Messages" on public.messages for all using (true) with che
                 const name = document.getElementById('loginName').value.trim();
                 currentUser = {
                     name: name,
-                    photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
+                    photo: (name === '정서빈' || name === '서빈') ? artistProfile.photoUrl : '1_2.png'
                 };
                 showToast(`${currentUser.name}님, 반갑습니다.`);
             } else {
                 const name = document.getElementById('signupName').value.trim();
                 const fileInput = document.getElementById('signupPhotoFile');
                 
-                let photoUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80';
+                let photoUrl = '1_2.png';
                 if (fileInput && fileInput.files && fileInput.files[0]) {
                     const reader = new FileReader();
                     reader.onload = function(evt) {
                         currentUser = { name: name, photo: evt.target.result };
                         updateUserUI();
+                        renderBioUI();
                     };
                     reader.readAsDataURL(fileInput.files[0]);
                 } else {
@@ -962,6 +1040,7 @@ create policy "Public Messages" on public.messages for all using (true) with che
 
             closeAuthModal();
             updateUserUI();
+            renderBioUI();
         }
 
         function updateUserUI() {
@@ -1001,6 +1080,7 @@ create policy "Public Messages" on public.messages for all using (true) with che
         function handleLogout() {
             currentUser = null;
             updateUserUI();
+            renderBioUI();
             showToast('로그아웃 되었습니다.');
         }
 
