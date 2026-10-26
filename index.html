@@ -20,19 +20,19 @@
             theme: {
                 extend: {
                     colors: {
-                        silver: {
-                            50: '#f6f7f9',
-                            100: '#e3e6ec',
-                            200: '#cbd1dc',
-                            300: '#9aa5b5',
-                            400: '#68778d',
-                            500: '#485567',
-                            600: '#343e4e',
-                            700: '#272e3a',
-                            800: '#1b2029',
-                            900: '#11141a',
-                            950: '#0b0d11',
-                            accent: '#e2e8f0'
+                        gallery: {
+                            50: '#fcfcfc',
+                            100: '#f4f4f5',
+                            200: '#e4e4e7',
+                            300: '#d4d4d8',
+                            400: '#a1a1aa',
+                            500: '#71717a',
+                            600: '#52525b',
+                            700: '#3f3f46',
+                            800: '#27272a',
+                            900: '#18181b',
+                            950: '#09090b',
+                            accent: '#27272a'
                         }
                     },
                     fontFamily: {
@@ -48,12 +48,12 @@
             touch-action: manipulation;
         }
         body {
-            background-color: #0d0f13;
-            color: #e2e8f0;
+            background-color: #f8f9fa;
+            color: #27272a;
             font-family: 'Cinzel', 'Noto Serif KR', serif;
         }
-        .silver-gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #cbd1dc 50%, #788596 100%);
+        .gallery-gradient-text {
+            background: linear-gradient(135deg, #18181b 0%, #3f3f46 50%, #71717a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -68,45 +68,45 @@
             width: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: #11141a;
+            background: #f4f4f5;
         }
         ::-webkit-scrollbar-thumb {
-            background: #272e3a;
+            background: #d4d4d8;
             border-radius: 2px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #9aa5b5;
+            background: #a1a1aa;
         }
         .sold-out-stamp {
             border: 1.5px solid #ef4444;
-            color: #f87171;
+            color: #ef4444;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             transform: rotate(-10deg);
-            background-color: rgba(0, 0, 0, 0.75);
+            background-color: rgba(255, 255, 255, 0.9);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-silver-200 selection:text-black pb-16 md:pb-0 bg-[#0d0f13]">
+<body class="min-h-screen flex flex-col justify-between selection:bg-gallery-200 selection:text-black pb-16 md:pb-0 bg-[#f8f9fa]">
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-40 bg-[#0d0f13]/90 backdrop-blur-md border-b border-silver-700/50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gallery-200 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <div class="cursor-pointer active:scale-95 transition-transform" onclick="resetView()">
-                <h1 class="text-xl sm:text-2xl font-light tracking-[0.2em] silver-gradient-text uppercase">Seobin's Gallery</h1>
-                <p class="text-[9px] tracking-[0.25em] text-silver-300/70 uppercase -mt-0.5">정서빈 ART COLLECTION</p>
+                <h1 class="text-xl sm:text-2xl font-light tracking-[0.2em] gallery-gradient-text uppercase">Seobin's Gallery</h1>
+                <p class="text-[9px] tracking-[0.25em] text-gallery-500 uppercase -mt-0.5">정서빈 ART COLLECTION</p>
             </div>
 
             <!-- PC Actions -->
             <div class="hidden md:flex items-center gap-3">
-                <button onclick="handleUploadClick()" class="flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest border border-silver-300/40 text-silver-100 hover:bg-silver-200 hover:text-black transition-all rounded-sm">
+                <button onclick="handleUploadClick()" class="flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest border border-gallery-300 text-gallery-800 hover:bg-gallery-900 hover:text-white transition-all rounded-sm">
                     <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                     <span>작품 등록</span>
                 </button>
                 
                 <div id="userProfileArea" class="flex items-center gap-3">
-                    <button id="authBtn" onclick="openAuthModal()" class="px-4 py-2 text-xs uppercase tracking-widest bg-silver-800 border border-silver-700 text-silver-100 hover:border-silver-400 transition-all rounded-sm">
+                    <button id="authBtn" onclick="openAuthModal()" class="px-4 py-2 text-xs uppercase tracking-widest bg-gallery-900 border border-gallery-900 text-white hover:bg-gallery-800 transition-all rounded-sm shadow-sm">
                         로그인 / 가입
                     </button>
                 </div>
@@ -114,22 +114,22 @@
             
             <!-- Mobile Quick Buttons -->
             <div class="md:hidden flex items-center gap-2">
-                <button onclick="handleUploadClick()" class="p-2 text-silver-200 border border-silver-600 rounded-sm active:bg-silver-800">
+                <button onclick="handleUploadClick()" class="p-2 text-gallery-800 border border-gallery-300 rounded-sm active:bg-gallery-100">
                     <i data-lucide="plus" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-10 flex-grow w-full space-y-12 md:space-y-16">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12 flex-grow w-full space-y-12 md:space-y-16">
 
         <!-- Selected Highlights (1 col x 3 rows) -->
         <section>
             <div class="flex items-center justify-between mb-4 md:mb-6">
-                <h2 class="text-xs uppercase tracking-[0.25em] text-silver-200 flex items-center gap-2">
-                    <span class="w-6 md:w-8 h-[1px] bg-silver-300 inline-block"></span> Selected Highlights
+                <h2 class="text-xs uppercase tracking-[0.25em] text-gallery-700 font-semibold flex items-center gap-2">
+                    <span class="w-6 md:w-8 h-[1px] bg-gallery-400 inline-block"></span> Selected Highlights
                 </h2>
-                <span class="text-xs font-light text-silver-400">주요 수작 콜렉션</span>
+                <span class="text-xs font-light text-gallery-500">주요 수작 콜렉션</span>
             </div>
 
             <div id="mainHighlightsGrid" class="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
@@ -138,8 +138,8 @@
         </section>
 
         <!-- Artist Profile & Statement -->
-        <section id="artistBioSection" class="border-t border-silver-800/80 pt-10">
-            <div class="bg-silver-950/90 border border-silver-800/80 p-6 md:p-8 rounded-sm relative overflow-hidden">
+        <section id="artistBioSection" class="border-t border-gallery-200 pt-10">
+            <div class="bg-white border border-gallery-200 p-6 md:p-8 rounded-sm relative overflow-hidden shadow-sm">
                 <div id="editBioBtnArea" class="absolute top-4 right-4">
                     <!-- Dynamic Edit Button for Seobin -->
                 </div>
@@ -147,7 +147,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
                     <!-- Photo Frame with Fallback Image -->
                     <div class="flex justify-center">
-                        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-silver-400/80 shadow-2xl bg-black/80 flex items-center justify-center p-1">
+                        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-gallery-300 shadow-lg bg-gallery-100 flex items-center justify-center p-1">
                             <img id="bioPhoto" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="정서빈 작가" 
                                  onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80'"
                                  class="w-full h-full object-cover object-center rounded-full transition-all duration-300">
@@ -157,26 +157,26 @@
                     <!-- Bio Text & Career -->
                     <div class="md:col-span-2 space-y-4 text-center md:text-left">
                         <div>
-                            <span class="text-[10px] uppercase tracking-[0.25em] text-silver-400 block font-sans">Fine Artist</span>
-                            <h2 id="bioName" class="text-xl md:text-2xl font-light text-silver-100 tracking-wider">정서빈 (Jung Seobin)</h2>
+                            <span class="text-[10px] uppercase tracking-[0.25em] text-gallery-500 block font-sans">Fine Artist</span>
+                            <h2 id="bioName" class="text-xl md:text-2xl font-light text-gallery-900 tracking-wider">정서빈 (Jung Seobin)</h2>
                         </div>
 
-                        <p id="bioStatement" class="text-xs md:text-sm text-silver-300 leading-relaxed font-light font-sans bg-silver-900/40 p-4 border-l-2 border-silver-400 rounded-r-sm">
+                        <p id="bioStatement" class="text-xs md:text-sm text-gallery-700 leading-relaxed font-light font-sans bg-gallery-50 p-4 border-l-2 border-gallery-400 rounded-r-sm shadow-inner">
                             "은빛 입자와 깊은 질감으로 조율하는 침묵과 빛의 울림. 캔버스 위에 시간의 궤적을 겹겹이 쌓아 올려 관람객에게 내면적 고요와 형이상학적 미학을 선사합니다."
                         </p>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans text-silver-400 pt-1">
-                            <div class="bg-silver-900/60 p-3 border border-silver-800/80 rounded-sm">
-                                <h4 class="text-silver-200 font-semibold mb-1 border-b border-silver-800 pb-1 text-[11px] uppercase tracking-wider">주요 연혁 및 학력</h4>
-                                <ul id="bioCareerList" class="space-y-1 text-[11px] font-light text-silver-300">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans text-gallery-600 pt-1">
+                            <div class="bg-gallery-50 p-3 border border-gallery-200 rounded-sm">
+                                <h4 class="text-gallery-900 font-semibold mb-1 border-b border-gallery-200 pb-1 text-[11px] uppercase tracking-wider">주요 연혁 및 학력</h4>
+                                <ul id="bioCareerList" class="space-y-1 text-[11px] font-light text-gallery-700">
                                     <li>• 홍익대학교 미술대학 회화과 졸업</li>
                                     <li>• 개인전 6회 (서울, 부산, 파리)</li>
                                     <li>• 현대 미술 유화&아크릴 신진작가상 수상</li>
                                 </ul>
                             </div>
-                            <div class="bg-silver-900/60 p-3 border border-silver-800/80 rounded-sm">
-                                <h4 class="text-silver-200 font-semibold mb-1 border-b border-silver-800 pb-1 text-[11px] uppercase tracking-wider">대표 전시 및 소장</h4>
-                                <ul id="bioExhibitionsList" class="space-y-1 text-[11px] font-light text-silver-300">
+                            <div class="bg-gallery-50 p-3 border border-gallery-200 rounded-sm">
+                                <h4 class="text-gallery-900 font-semibold mb-1 border-b border-gallery-200 pb-1 text-[11px] uppercase tracking-wider">대표 전시 및 소장</h4>
+                                <ul id="bioExhibitionsList" class="space-y-1 text-[11px] font-light text-gallery-700">
                                     <li>• 2026 서울 아트페어 초대전</li>
                                     <li>• 2025 은빛 울림의 공간 갤러리 기획전</li>
                                     <li>• 국립현대미술관 외 다수 소장</li>
@@ -189,11 +189,11 @@
         </section>
 
         <!-- Yearly Archive -->
-        <section class="border-t border-silver-800/80 pt-10">
+        <section class="border-t border-gallery-200 pt-10">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8">
                 <div>
-                    <h2 class="text-lg md:text-xl font-light tracking-wider silver-gradient-text">Yearly Archive</h2>
-                    <p class="text-[11px] text-silver-400 mt-0.5">연도별 전체 작품 모음</p>
+                    <h2 class="text-lg md:text-xl font-light tracking-wider gallery-gradient-text">Yearly Archive</h2>
+                    <p class="text-[11px] text-gallery-500 mt-0.5">연도별 전체 작품 모음</p>
                 </div>
 
                 <div id="yearFilters" class="flex overflow-x-auto no-scrollbar gap-2 py-1 text-xs -mx-4 px-4 md:mx-0 md:px-0">
@@ -207,21 +207,21 @@
         </section>
 
         <!-- Guestbook Section -->
-        <section id="guestbookSection" class="border-t border-silver-800/80 pt-10 pb-6">
+        <section id="guestbookSection" class="border-t border-gallery-200 pt-10 pb-6">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-6">
-                    <h2 class="text-lg md:text-xl font-light tracking-widest text-silver-100 uppercase">Guestbook & Contact</h2>
-                    <p class="text-[11px] text-silver-400 mt-1">작품 소장 문의나 감상평을 서빈 작가에게 전달해 주세요.</p>
+                    <h2 class="text-lg md:text-xl font-light tracking-widest text-gallery-900 uppercase">Guestbook & Contact</h2>
+                    <p class="text-[11px] text-gallery-500 mt-1">작품 소장 문의나 감상평을 서빈 작가에게 전달해 주세요.</p>
                 </div>
 
-                <form id="messageForm" onsubmit="handleMessageSubmit(event)" class="space-y-3 mb-8 bg-silver-900/60 p-4 sm:p-6 border border-silver-700/50 rounded-sm">
+                <form id="messageForm" onsubmit="handleMessageSubmit(event)" class="space-y-3 mb-8 bg-white p-4 sm:p-6 border border-gallery-200 rounded-sm shadow-sm">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <input type="text" id="msgName" placeholder="성함 / Name" required class="bg-silver-950 border border-silver-800 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-silver-300 text-silver-100">
-                        <input type="email" id="msgEmail" placeholder="이메일 / Email (선택)" class="bg-silver-950 border border-silver-800 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-silver-300 text-silver-100">
+                        <input type="text" id="msgName" placeholder="성함 / Name" required class="bg-gallery-50 border border-gallery-200 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-gallery-500 text-gallery-900">
+                        <input type="email" id="msgEmail" placeholder="이메일 / Email (선택)" class="bg-gallery-50 border border-gallery-200 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-gallery-500 text-gallery-900">
                     </div>
-                    <textarea id="msgContent" rows="3" placeholder="메시지를 남겨주세요..." required class="w-full bg-silver-950 border border-silver-800 text-xs p-3.5 rounded-sm focus:outline-none focus:border-silver-300 text-silver-100 resize-none"></textarea>
+                    <textarea id="msgContent" rows="3" placeholder="메시지를 남겨주세요..." required class="w-full bg-gallery-50 border border-gallery-200 text-xs p-3.5 rounded-sm focus:outline-none focus:border-gallery-500 text-gallery-900 resize-none"></textarea>
                     <div class="text-right">
-                        <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-silver-200 text-black hover:bg-white transition-all text-xs uppercase tracking-widest font-semibold rounded-sm active:opacity-90">
+                        <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 transition-all text-xs uppercase tracking-widest font-semibold rounded-sm active:opacity-90 shadow-sm">
                             메시지 전송
                         </button>
                     </div>
@@ -235,21 +235,21 @@
     </main>
 
     <!-- Mobile Navigation -->
-    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#0d0f13]/95 backdrop-blur-lg border-t border-silver-800 z-40 px-4 py-2 flex justify-around items-center text-[10px] text-silver-400">
-        <button onclick="resetView()" class="flex flex-col items-center gap-1 active:text-silver-100">
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gallery-200 z-40 px-4 py-2.5 flex justify-around items-center text-[10px] text-gallery-600 shadow-lg">
+        <button onclick="resetView()" class="flex flex-col items-center gap-1 active:text-black">
             <i data-lucide="image" class="w-5 h-5"></i>
             <span>갤러리</span>
         </button>
-        <button onclick="handleUploadClick()" class="flex flex-col items-center gap-1 active:text-silver-100">
+        <button onclick="handleUploadClick()" class="flex flex-col items-center gap-1 active:text-black">
             <i data-lucide="plus-circle" class="w-5 h-5"></i>
             <span>작품 등록</span>
         </button>
-        <button onclick="scrollToGuestbook()" class="flex flex-col items-center gap-1 active:text-silver-100">
+        <button onclick="scrollToGuestbook()" class="flex flex-col items-center gap-1 active:text-black">
             <i data-lucide="message-square" class="w-5 h-5"></i>
             <span>방명록</span>
         </button>
-        <button onclick="handleMobileAuthClick()" class="flex flex-col items-center gap-1 active:text-silver-100">
-            <div id="mobileUserAvatar" class="w-5 h-5 rounded-full overflow-hidden border border-silver-500 hidden">
+        <button onclick="handleMobileAuthClick()" class="flex flex-col items-center gap-1 active:text-black">
+            <div id="mobileUserAvatar" class="w-5 h-5 rounded-full overflow-hidden border border-gallery-400 hidden">
                 <img id="mobileAvatarImg" src="" class="w-full h-full object-cover">
             </div>
             <i id="mobileUserIcon" data-lucide="user" class="w-5 h-5"></i>
@@ -258,165 +258,165 @@
     </nav>
 
     <!-- Footer -->
-    <footer class="border-t border-silver-800/60 py-6 text-center text-[11px] text-silver-400">
+    <footer class="border-t border-gallery-200 py-8 text-center text-[11px] text-gallery-500 bg-white mt-12">
         <p>&copy; 2026 Seobin's Gallery. All rights reserved.</p>
-        <p class="mt-0.5 text-[10px] text-silver-500">Fine Art & Silver Aesthetics • Vercel & Supabase Ready</p>
+        <p class="mt-0.5 text-[10px] text-gallery-400">Fine Art & Modern Aesthetics • Vercel & Supabase Ready</p>
     </footer>
 
     <!-- MODALS -->
 
     <!-- Edit Profile Modal (For Seobin) -->
-    <div id="editBioModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-silver-950 border border-silver-700 w-full max-w-lg p-6 rounded-sm relative max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModal('editBioModal')" class="absolute top-4 right-4 text-silver-400 hover:text-white p-1">
+    <div id="editBioModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-gallery-200 w-full max-w-lg p-6 rounded-sm relative max-h-[85vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeModal('editBioModal')" class="absolute top-4 right-4 text-gallery-400 hover:text-black p-1">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <h3 class="text-base font-light text-silver-100 uppercase tracking-widest mb-4 border-b border-silver-800 pb-2">작가 프로필 수정</h3>
+            <h3 class="text-base font-light text-gallery-900 uppercase tracking-widest mb-4 border-b border-gallery-200 pb-2">작가 프로필 수정</h3>
 
             <form onsubmit="handleSaveBio(event)" class="space-y-3.5 text-xs">
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">작가 성명 / 영문명</label>
-                    <input type="text" id="editBioName" required class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작가 성명 / 영문명</label>
+                    <input type="text" id="editBioName" required class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">프로필 사진 파일 (선택)</label>
-                    <input type="file" id="editBioPhotoFile" accept="image/*" class="w-full bg-silver-900 border border-silver-800 p-2 text-silver-300 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-silver-800 file:text-silver-200">
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">프로필 사진 파일 (선택)</label>
+                    <input type="file" id="editBioPhotoFile" accept="image/*" class="w-full bg-gallery-50 border border-gallery-200 p-2 text-gallery-700 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-gallery-200 file:text-gallery-800">
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">Artist Statement (작가 철학)</label>
-                    <textarea id="editBioStatement" rows="3" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">Artist Statement (작가 철학)</label>
+                    <textarea id="editBioStatement" rows="3" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">연혁 및 학력 (줄바꿈 구분)</label>
-                    <textarea id="editBioCareer" rows="3" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">연혁 및 학력 (줄바꿈 구분)</label>
+                    <textarea id="editBioCareer" rows="3" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">전시 및 소장 (줄바꿈 구분)</label>
-                    <textarea id="editBioExhibitions" rows="3" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">전시 및 소장 (줄바꿈 구분)</label>
+                    <textarea id="editBioExhibitions" rows="3" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
                 </div>
 
                 <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal('editBioModal')" class="px-4 py-2 border border-silver-800 text-silver-400 text-xs">취소</button>
-                    <button type="submit" class="px-5 py-2 bg-silver-200 text-black hover:bg-white font-semibold text-xs active:opacity-90">저장하기</button>
+                    <button type="button" onclick="closeModal('editBioModal')" class="px-4 py-2 border border-gallery-300 text-gallery-600 text-xs">취소</button>
+                    <button type="submit" class="px-5 py-2 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold text-xs active:opacity-95">저장하기</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Upload Modal -->
-    <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-silver-950 border-t sm:border border-silver-700 w-full max-w-lg p-5 sm:p-6 rounded-t-lg sm:rounded-sm relative max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModal('uploadModal')" class="absolute top-4 right-4 text-silver-400 hover:text-white p-1">
+    <div id="uploadModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white border-t sm:border border-gallery-200 w-full max-w-lg p-5 sm:p-6 rounded-t-lg sm:rounded-sm relative max-h-[85vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeModal('uploadModal')" class="absolute top-4 right-4 text-gallery-400 hover:text-black p-1">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <h3 class="text-base font-light text-silver-100 uppercase tracking-widest mb-4 border-b border-silver-800 pb-2">새 작품 등록</h3>
+            <h3 class="text-base font-light text-gallery-900 uppercase tracking-widest mb-4 border-b border-gallery-200 pb-2">새 작품 등록</h3>
 
             <form id="uploadForm" onsubmit="handleUploadArtwork(event)" class="space-y-3 text-xs">
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">작품명 (한글) *</label>
-                    <input type="text" id="artTitle" required placeholder="예: 빛의 묵시록" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작품명 (한글) *</label>
+                    <input type="text" id="artTitle" required placeholder="예: 빛의 묵시록" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">제작 연도 *</label>
-                        <input type="number" id="artYear" required min="2000" max="2030" value="2026" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">제작 연도 *</label>
+                        <input type="number" id="artYear" required min="2000" max="2030" value="2026" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                     </div>
                     <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">가격 (KRW) *</label>
-                        <input type="text" id="artPrice" required placeholder="예: ₩ 4,500,000" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">가격 (KRW) *</label>
+                        <input type="text" id="artPrice" required placeholder="예: ₩ 4,500,000" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">작품 이미지 URL *</label>
-                    <input type="url" id="artImgUrl" required placeholder="https://images.unsplash.com/..." class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작품 이미지 URL *</label>
+                    <input type="url" id="artImgUrl" required placeholder="https://images.unsplash.com/..." class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">작업 과정 영상 URL (선택)</label>
-                    <input type="url" id="artVideoUrl" placeholder="https://www.youtube.com/embed/..." class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작업 과정 영상 URL (선택)</label>
+                    <input type="url" id="artVideoUrl" placeholder="https://www.youtube.com/embed/..." class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">크기 및 재료</label>
-                        <input type="text" id="artMeta" placeholder="예: 130.3 x 97.0 cm (60호), 캔버스에 유채" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">크기 및 재료</label>
+                        <input type="text" id="artMeta" placeholder="예: 130.3 x 97.0 cm (60호), 캔버스에 유채" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                     </div>
                     <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">판매 상태</label>
-                        <select id="artStatus" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">판매 상태</label>
+                        <select id="artStatus" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                             <option value="available">판매 가능</option>
                             <option value="sold">판매 완료 (Sold Out)</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-silver-400 mb-1">작품 설명 (작가 노트)</label>
-                    <textarea id="artDesc" rows="3" placeholder="작품의 철학이나 작업 비하인드..." class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100 resize-none"></textarea>
+                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작품 설명 (작가 노트)</label>
+                    <textarea id="artDesc" rows="3" placeholder="작품의 철학이나 작업 비하인드..." class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
                 </div>
 
                 <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal('uploadModal')" class="px-4 py-2 border border-silver-800 hover:bg-silver-900 text-silver-400 text-xs">취소</button>
-                    <button type="submit" class="px-5 py-2 bg-silver-200 text-black hover:bg-white font-semibold text-xs active:opacity-90">등록 완료</button>
+                    <button type="button" onclick="closeModal('uploadModal')" class="px-4 py-2 border border-gallery-300 hover:bg-gallery-100 text-gallery-600 text-xs">취소</button>
+                    <button type="submit" class="px-5 py-2 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold text-xs active:opacity-95">등록 완료</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Artwork Detail Modal -->
-    <div id="detailModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-silver-950 border-t sm:border border-silver-700 w-full max-w-3xl p-5 sm:p-7 rounded-t-lg sm:rounded-sm relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 text-silver-400 hover:text-white z-10 p-1">
+    <div id="detailModal" class="fixed inset-0 bg-black/40 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white border-t sm:border border-gallery-200 w-full max-w-3xl p-5 sm:p-7 rounded-t-lg sm:rounded-sm relative max-h-[90vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 text-gallery-400 hover:text-black z-10 p-1">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 items-start">
-                <div class="relative bg-black rounded-sm overflow-hidden border border-silver-800/80">
+                <div class="relative bg-gallery-100 rounded-sm overflow-hidden border border-gallery-200">
                     <img id="modalImg" src="" alt="" class="w-full h-auto max-h-[350px] sm:max-h-[420px] object-contain mx-auto">
-                    <div id="modalSoldBadge" class="hidden absolute top-4 right-4 sold-out-stamp px-3 py-1 text-xs font-bold">
+                    <div id="modalSoldBadge" class="hidden absolute top-4 right-4 sold-out-stamp px-3 py-1 text-xs font-bold shadow-sm">
                         SOLD OUT
                     </div>
                 </div>
 
                 <div class="space-y-4">
                     <div>
-                        <div id="modalYear" class="text-[10px] uppercase tracking-widest text-silver-400 font-sans mb-1"></div>
-                        <h2 id="modalTitle" class="text-xl sm:text-2xl font-normal text-silver-100"></h2>
+                        <div id="modalYear" class="text-[10px] uppercase tracking-widest text-gallery-500 font-sans mb-1"></div>
+                        <h2 id="modalTitle" class="text-xl sm:text-2xl font-normal text-gallery-900"></h2>
                     </div>
 
-                    <div class="bg-silver-900/60 border border-silver-800 p-3.5 rounded-sm space-y-2 font-sans text-xs">
-                        <div class="flex justify-between items-center border-b border-silver-800/80 pb-2">
-                            <span class="text-silver-400 text-[11px]">규격 & 소재</span>
-                            <span id="modalMeta" class="text-silver-200 font-light text-right"></span>
+                    <div class="bg-gallery-50 border border-gallery-200 p-3.5 rounded-sm space-y-2 font-sans text-xs">
+                        <div class="flex justify-between items-center border-b border-gallery-200 pb-2">
+                            <span class="text-gallery-500 text-[11px]">규격 & 소재</span>
+                            <span id="modalMeta" class="text-gallery-800 font-light text-right"></span>
                         </div>
-                        <div class="flex justify-between items-center border-b border-silver-800/80 pb-2">
-                            <span class="text-silver-400 text-[11px]">제작 연도</span>
-                            <span id="modalYearDetail" class="text-silver-200 font-light"></span>
+                        <div class="flex justify-between items-center border-b border-gallery-200 pb-2">
+                            <span class="text-gallery-500 text-[11px]">제작 연도</span>
+                            <span id="modalYearDetail" class="text-gallery-800 font-light"></span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-silver-400 text-[11px]">소장 가격</span>
-                            <span id="modalPrice" class="text-silver-100 font-semibold text-sm"></span>
+                            <span class="text-gallery-500 text-[11px]">소장 가격</span>
+                            <span id="modalPrice" class="text-gallery-900 font-semibold text-sm"></span>
                         </div>
                     </div>
 
                     <div class="space-y-1">
-                        <span class="text-[10px] uppercase tracking-widest text-silver-400 block font-sans">Artist Note</span>
-                        <p id="modalDesc" class="text-xs text-silver-300 leading-relaxed font-light bg-silver-950/40 p-2.5 rounded-sm border border-silver-800/40"></p>
+                        <span class="text-[10px] uppercase tracking-widest text-gallery-500 block font-sans">Artist Note</span>
+                        <p id="modalDesc" class="text-xs text-gallery-700 leading-relaxed font-light bg-gallery-50 p-2.5 rounded-sm border border-gallery-200"></p>
                     </div>
 
-                    <div id="modalVideoSection" class="hidden pt-1 border-t border-silver-800/80">
-                        <button id="toggleVideoBtn" onclick="toggleProcessVideo()" class="w-full flex items-center justify-between p-2.5 bg-silver-900/70 border border-silver-800 hover:border-silver-500 rounded-sm text-xs text-silver-200 transition-all">
+                    <div id="modalVideoSection" class="hidden pt-1 border-t border-gallery-200">
+                        <button id="toggleVideoBtn" onclick="toggleProcessVideo()" class="w-full flex items-center justify-between p-2.5 bg-gallery-100 border border-gallery-200 hover:border-gallery-400 rounded-sm text-xs text-gallery-800 transition-all">
                             <span class="flex items-center gap-2">
-                                <i data-lucide="play-circle" class="w-4 h-4 text-silver-300"></i>
+                                <i data-lucide="play-circle" class="w-4 h-4 text-gallery-600"></i>
                                 <span>작업 과정 영상 보기</span>
                             </span>
-                            <i id="videoChevron" data-lucide="chevron-down" class="w-4 h-4 text-silver-400 transition-transform duration-300"></i>
+                            <i id="videoChevron" data-lucide="chevron-down" class="w-4 h-4 text-gallery-500 transition-transform duration-300"></i>
                         </button>
                         
-                        <div id="modalVideoContainer" class="hidden mt-2 aspect-video w-full bg-black rounded-sm overflow-hidden border border-silver-800 transition-all">
+                        <div id="modalVideoContainer" class="hidden mt-2 aspect-video w-full bg-black rounded-sm overflow-hidden border border-gallery-200 transition-all">
                             <div id="modalVideoWrapper" class="w-full h-full"></div>
                         </div>
                     </div>
 
                     <div class="pt-1">
-                        <button onclick="inquireArtwork()" class="w-full py-2.5 bg-silver-200 text-black hover:bg-white text-xs uppercase tracking-widest font-semibold transition-all active:opacity-90 rounded-sm">
+                        <button onclick="inquireArtwork()" class="w-full py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 text-xs uppercase tracking-widest font-semibold transition-all active:opacity-95 rounded-sm shadow-sm">
                             작품 소장 및 구입 문의
                         </button>
                     </div>
@@ -426,62 +426,62 @@
     </div>
 
     <!-- Auth Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-silver-950 border border-silver-700 w-full max-w-md p-6 rounded-sm relative">
-            <button type="button" onclick="closeAuthModal()" class="absolute top-4 right-4 text-silver-400 hover:text-white p-2.5 rounded-full cursor-pointer z-10 hover:bg-silver-900 transition-all">
+    <div id="authModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-gallery-200 w-full max-w-md p-6 rounded-sm relative shadow-2xl">
+            <button type="button" onclick="closeAuthModal()" class="absolute top-4 right-4 text-gallery-400 hover:text-black p-2.5 rounded-full cursor-pointer z-10 hover:bg-gallery-100 transition-all">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="flex border-b border-silver-800 mb-5 pr-8">
-                <button id="tabLogin" onclick="switchAuthTab('login')" class="flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-silver-200 text-silver-100 font-semibold">로그인</button>
-                <button id="tabSignup" onclick="switchAuthTab('signup')" class="flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-silver-400 hover:text-white">회원가입</button>
+            <div class="flex border-b border-gallery-200 mb-5 pr-8">
+                <button id="tabLogin" onclick="switchAuthTab('login')" class="flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-gallery-900 text-gallery-900 font-semibold">로그인</button>
+                <button id="tabSignup" onclick="switchAuthTab('signup')" class="flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-gallery-400 hover:text-gallery-800">회원가입</button>
             </div>
 
             <!-- Login Form -->
             <form id="loginForm" onsubmit="handleAuth(event, 'login')" class="space-y-3.5 text-xs">
                 <div>
-                    <label class="block uppercase tracking-wider text-silver-400 mb-1 text-[10px]">성명 / 작가명 *</label>
-                    <input type="text" id="loginName" required placeholder="예: 정서빈" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">성명 / 작가명 *</label>
+                    <input type="text" id="loginName" required placeholder="예: 정서빈" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div>
-                    <label class="block uppercase tracking-wider text-silver-400 mb-1 text-[10px]">비밀번호 *</label>
-                    <input type="password" required placeholder="••••••••" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">비밀번호 *</label>
+                    <input type="password" required placeholder="••••••••" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
-                <button type="submit" class="w-full py-2.5 bg-silver-200 text-black hover:bg-white font-semibold uppercase tracking-widest mt-2 active:opacity-90">로그인</button>
+                <button type="submit" class="w-full py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold uppercase tracking-widest mt-2 active:opacity-95 shadow-sm">로그인</button>
             </form>
 
             <!-- Signup Form -->
             <form id="signupForm" onsubmit="handleAuth(event, 'signup')" class="space-y-3.5 text-xs hidden">
                 <div>
-                    <label class="block uppercase tracking-wider text-silver-400 mb-1 text-[10px]">성명 / 작가명 *</label>
-                    <input type="text" id="signupName" required placeholder="예: 정서빈" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">성명 / 작가명 *</label>
+                    <input type="text" id="signupName" required placeholder="예: 정서빈" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div>
-                    <label class="block uppercase tracking-wider text-silver-400 mb-1 text-[10px]">비밀번호 *</label>
-                    <input type="password" required placeholder="••••••••" class="w-full bg-silver-900 border border-silver-800 p-2.5 rounded-sm focus:border-silver-300 focus:outline-none text-silver-100">
+                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">비밀번호 *</label>
+                    <input type="password" required placeholder="••••••••" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
                 </div>
                 <div>
-                    <label class="block uppercase tracking-wider text-silver-400 mb-1 text-[10px]">프로필 사진 파일 선택 (선택)</label>
-                    <input type="file" id="signupPhotoFile" accept="image/*" class="w-full bg-silver-900 border border-silver-800 p-2 rounded-sm text-silver-300 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-silver-800 file:text-silver-200 cursor-pointer">
+                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">프로필 사진 파일 선택 (선택)</label>
+                    <input type="file" id="signupPhotoFile" accept="image/*" class="w-full bg-gallery-50 border border-gallery-200 p-2 rounded-sm text-gallery-700 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-gallery-200 file:text-gallery-800 cursor-pointer">
                 </div>
-                <button type="submit" class="w-full py-2.5 bg-silver-200 text-black hover:bg-white font-semibold uppercase tracking-widest mt-2 active:opacity-90">가입 완료</button>
+                <button type="submit" class="w-full py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold uppercase tracking-widest mt-2 active:opacity-95 shadow-sm">가입 완료</button>
             </form>
         </div>
     </div>
 
     <!-- Custom Confirm Modal (Replacing alert/confirm) -->
-    <div id="confirmModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-silver-950 border border-silver-700 w-full max-w-sm p-5 rounded-sm text-center">
-            <h4 id="confirmMessage" class="text-xs font-sans text-silver-200 mb-5 leading-relaxed">확인하시겠습니까?</h4>
+    <div id="confirmModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-gallery-200 w-full max-w-sm p-5 rounded-sm text-center shadow-2xl">
+            <h4 id="confirmMessage" class="text-xs font-sans text-gallery-800 mb-5 leading-relaxed">확인하시겠습니까?</h4>
             <div class="flex justify-center gap-3">
-                <button id="confirmCancelBtn" class="px-4 py-1.5 border border-silver-800 text-silver-400 text-xs">취소</button>
-                <button id="confirmOkBtn" class="px-5 py-1.5 bg-silver-200 text-black font-semibold text-xs active:opacity-90">확인</button>
+                <button id="confirmCancelBtn" class="px-4 py-1.5 border border-gallery-300 text-gallery-600 text-xs">취소</button>
+                <button id="confirmOkBtn" class="px-5 py-1.5 bg-gallery-900 text-white font-semibold text-xs active:opacity-95 shadow-sm">확인</button>
             </div>
         </div>
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:translate-x-0 bg-silver-200 text-black px-4 py-2.5 rounded-sm shadow-2xl text-xs uppercase tracking-widest font-semibold transition-all duration-300 transform translate-y-20 opacity-0 z-50 whitespace-nowrap">
+    <div id="toast" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:translate-x-0 bg-gallery-900 text-white px-4 py-2.5 rounded-sm shadow-xl text-xs uppercase tracking-widest font-semibold transition-all duration-300 transform translate-y-20 opacity-0 z-50 whitespace-nowrap">
         알림 메시지
     </div>
 
@@ -678,7 +678,7 @@
             if (editArea) {
                 if (isSeobinAuthor()) {
                     editArea.innerHTML = `
-                        <button onclick="openEditBioModal()" class="px-3 py-1.5 text-[11px] bg-silver-800/80 border border-silver-600 hover:border-silver-300 text-silver-100 transition-all rounded-sm flex items-center gap-1.5">
+                        <button onclick="openEditBioModal()" class="px-3 py-1.5 text-[11px] bg-gallery-100 border border-gallery-300 hover:border-gallery-500 text-gallery-800 transition-all rounded-sm flex items-center gap-1.5 shadow-sm">
                             <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
                             <span>프로필 수정</span>
                         </button>
@@ -739,25 +739,25 @@
             const highlights = artworks.slice(0, 3);
 
             grid.innerHTML = highlights.map(art => `
-                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-silver-900/40 border border-silver-800 hover:border-silver-400 transition-all rounded-sm overflow-hidden flex flex-col md:flex-row">
-                    <div class="relative aspect-[16/10] md:w-1/2 overflow-hidden bg-black/60">
+                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-white border border-gallery-200 hover:border-gallery-400 transition-all rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-md">
+                    <div class="relative aspect-[16/10] md:w-1/2 overflow-hidden bg-gallery-100">
                         <img src="${art.imageUrl}" alt="${art.title}" 
                              onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80'"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         ${art.isSold ? `
-                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                <span class="sold-out-stamp px-3 py-1 text-xs font-bold">SOLD OUT</span>
+                            <div class="absolute inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center">
+                                <span class="sold-out-stamp px-3 py-1 text-xs font-bold shadow-sm">SOLD OUT</span>
                             </div>
                         ` : ''}
-                        <div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-sm text-[10px] px-2.5 py-0.5 text-silver-300 font-sans tracking-widest border border-silver-700/50">
+                        <div class="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm text-[10px] px-2.5 py-0.5 text-gallery-700 font-sans tracking-widest border border-gallery-200">
                             ${art.year}
                         </div>
                     </div>
                     <div class="p-5 md:w-1/2 flex flex-col justify-center space-y-3">
-                        <span class="text-[10px] uppercase tracking-widest text-silver-400 font-sans">Featured Masterpiece</span>
-                        <h3 class="text-lg md:text-xl font-normal text-silver-100 group-hover:text-white transition-colors">${art.title}</h3>
-                        <p class="text-xs text-silver-300 font-sans font-light leading-relaxed line-clamp-3">${art.description || art.meta}</p>
-                        <div class="pt-2 text-[11px] text-silver-400 font-sans flex items-center gap-1">
+                        <span class="text-[10px] uppercase tracking-widest text-gallery-500 font-sans">Featured Masterpiece</span>
+                        <h3 class="text-lg md:text-xl font-normal text-gallery-900 group-hover:text-black transition-colors">${art.title}</h3>
+                        <p class="text-xs text-gallery-600 font-sans font-light leading-relaxed line-clamp-3">${art.description || art.meta}</p>
+                        <div class="pt-2 text-[11px] text-gallery-800 font-sans flex items-center gap-1 font-medium">
                             <span>자세히 감상하기</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -780,8 +780,8 @@
                     <button onclick="filterByYear('${yr}')" 
                         class="px-3.5 py-1.5 text-[11px] font-sans transition-all whitespace-nowrap rounded-sm border ${
                             isActive 
-                            ? 'bg-silver-200 text-black border-silver-200 font-semibold shadow-md' 
-                            : 'bg-silver-900/60 text-silver-400 border-silver-800 hover:border-silver-500'
+                            ? 'bg-gallery-900 text-white border-gallery-900 font-semibold shadow-sm' 
+                            : 'bg-white text-gallery-600 border-gallery-200 hover:border-gallery-400'
                         }">
                         ${yr === 'ALL' ? '전체 보기' : yr + '년 작품'}
                     </button>
@@ -805,26 +805,27 @@
             }
 
             if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-10 text-xs text-silver-500 font-sans">${selectedYear}년도 전시 작품이 존재하지 않습니다.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-xs text-gallery-500 font-sans">${selectedYear}년도 전시 작품이 존재하지 않습니다.</div>`;
                 return;
             }
 
             grid.innerHTML = filtered.map(art => `
-                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-silver-950 border border-silver-800/80 hover:border-silver-400 transition-all rounded-sm overflow-hidden flex flex-col">
-                    <div class="relative aspect-square w-full bg-black/60 overflow-hidden">
+                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-white border border-gallery-200 hover:border-gallery-400 transition-all rounded-sm overflow-hidden flex flex-col shadow-sm hover:shadow-md">
+                    <div class="relative aspect-square w-full bg-gallery-100 overflow-hidden">
                         <img src="${art.imageUrl}" alt="${art.title}" 
                              onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80'"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         ${art.isSold ? `
-                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                <span class="sold-out-stamp px-2 py-0.5 text-[9px] font-bold">SOLD OUT</span>
+                            <div class="absolute inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center">
+                                <span class="sold-out-stamp px-2 py-0.5 text-[9px] font-bold shadow-sm">SOLD OUT</span>
                             </div>
                         ` : ''}
                     </div>
-                    <div class="p-2.5">
-                        <h4 class="text-xs font-normal text-silver-200 group-hover:text-white truncate">${art.title}</h4>
-                        <div class="flex items-center justify-between mt-1 text-[10px] text-silver-400 font-sans">
+                    <div class="p-3">
+                        <h4 class="text-xs font-normal text-gallery-900 group-hover:text-black truncate">${art.title}</h4>
+                        <div class="flex items-center justify-between mt-1 text-[10px] text-gallery-500 font-sans">
                             <span>${art.year}</span>
+                            <span class="font-medium text-gallery-800">${art.price}</span>
                         </div>
                     </div>
                 </div>
@@ -1011,13 +1012,13 @@
             if (tab === 'login') {
                 loginForm.classList.remove('hidden');
                 signupForm.classList.add('hidden');
-                tabLogin.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-silver-200 text-silver-100 font-semibold';
-                tabSignup.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-silver-400 hover:text-white';
+                tabLogin.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-gallery-900 text-gallery-900 font-semibold';
+                tabSignup.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-gallery-400 hover:text-gallery-800';
             } else {
                 loginForm.classList.add('hidden');
                 signupForm.classList.remove('hidden');
-                tabSignup.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-silver-200 text-silver-100 font-semibold';
-                tabLogin.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-silver-400 hover:text-white';
+                tabSignup.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-gallery-900 text-gallery-900 font-semibold';
+                tabLogin.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-gallery-400 hover:text-gallery-800';
             }
         }
 
@@ -1064,10 +1065,10 @@
 
             if (currentUser) {
                 userArea.innerHTML = `
-                    <div class="flex items-center gap-2 bg-silver-900 border border-silver-700/80 px-2.5 py-1 rounded-sm">
-                        <img src="${currentUser.photo}" class="w-6 h-6 rounded-full object-cover border border-silver-400">
-                        <span class="text-xs text-silver-200 font-sans">${currentUser.name}</span>
-                        <button onclick="handleLogout()" class="text-[10px] text-silver-400 hover:text-silver-100 ml-1 underline">로그아웃</button>
+                    <div class="flex items-center gap-2 bg-gallery-100 border border-gallery-300 px-2.5 py-1 rounded-sm shadow-sm">
+                        <img src="${currentUser.photo}" class="w-6 h-6 rounded-full object-cover border border-gallery-400">
+                        <span class="text-xs text-gallery-800 font-sans">${currentUser.name}</span>
+                        <button onclick="handleLogout()" class="text-[10px] text-gallery-500 hover:text-gallery-900 ml-1 underline">로그아웃</button>
                     </div>
                 `;
 
@@ -1079,7 +1080,7 @@
                 if (mobileAuthLabel) mobileAuthLabel.innerText = 'MY';
             } else {
                 userArea.innerHTML = `
-                    <button id="authBtn" onclick="openAuthModal()" class="px-4 py-2 text-xs uppercase tracking-widest bg-silver-800 border border-silver-700 text-silver-100 hover:border-silver-400 transition-all rounded-sm">
+                    <button id="authBtn" onclick="openAuthModal()" class="px-4 py-2 text-xs uppercase tracking-widest bg-gallery-900 border border-gallery-900 text-white hover:bg-gallery-800 transition-all rounded-sm shadow-sm">
                         로그인 / 가입
                     </button>
                 `;
@@ -1164,12 +1165,12 @@
             if (!container) return;
 
             container.innerHTML = messages.map(m => `
-                <div class="bg-silver-950/80 border border-silver-800/80 p-3.5 rounded-sm font-sans">
+                <div class="bg-white border border-gallery-200 p-3.5 rounded-sm font-sans shadow-sm">
                     <div class="flex justify-between items-center mb-1.5">
-                        <span class="text-xs font-semibold text-silver-200">${m.name}</span>
-                        <span class="text-[10px] text-silver-500">${m.date}</span>
+                        <span class="text-xs font-semibold text-gallery-900">${m.name}</span>
+                        <span class="text-[10px] text-gallery-400">${m.date}</span>
                     </div>
-                    <p class="text-xs text-silver-300 font-light leading-relaxed">${m.content}</p>
+                    <p class="text-xs text-gallery-700 font-light leading-relaxed">${m.content}</p>
                 </div>
             `).join('');
         }
