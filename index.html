@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seobin's Gallery</title>
+    <title>Seobin's Gallery - Silver Wave Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts (Cinzel, Noto Serif KR) -->
@@ -21,18 +21,18 @@
                 extend: {
                     colors: {
                         gallery: {
-                            50: '#fcfcfc',
-                            100: '#f4f4f5',
-                            200: '#e4e4e7',
-                            300: '#d4d4d8',
-                            400: '#a1a1aa',
-                            500: '#71717a',
-                            600: '#52525b',
-                            700: '#3f3f46',
-                            800: '#27272a',
-                            900: '#18181b',
-                            950: '#09090b',
-                            accent: '#27272a'
+                            50: '#f6f8fa',
+                            100: '#edf1f5',
+                            200: '#d5dce3',
+                            300: '#b0bcc8',
+                            400: '#8698a8',
+                            500: '#627587',
+                            600: '#4b5c6c',
+                            700: '#3c4a57',
+                            800: '#28333d',
+                            900: '#171f26',
+                            950: '#0d1217',
+                            accent: '#8698a8'
                         }
                     },
                     fontFamily: {
@@ -48,12 +48,18 @@
             touch-action: manipulation;
         }
         body {
-            background-color: #f8f9fa;
-            color: #27272a;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #d8e1ec 100%);
+            color: #28333d;
             font-family: 'Cinzel', 'Noto Serif KR', serif;
+            min-height: 100vh;
+        }
+        /* 실버 물결 그라데이션 및 효과 */
+        .silver-wave-bg {
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.8) 0%, rgba(213, 220, 227, 0.5) 50%, rgba(176, 188, 200, 0.7) 100%);
+            backdrop-filter: blur(12px);
         }
         .gallery-gradient-text {
-            background: linear-gradient(135deg, #18181b 0%, #3f3f46 50%, #71717a 100%);
+            background: linear-gradient(135deg, #171f26 0%, #4b5c6c 50%, #8698a8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -68,14 +74,14 @@
             width: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: #f4f4f5;
+            background: #edf1f5;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d4d4d8;
+            background: #b0bcc8;
             border-radius: 2px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #a1a1aa;
+            background: #8698a8;
         }
         .sold-out-stamp {
             border: 1.5px solid #ef4444;
@@ -83,24 +89,24 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             transform: rotate(-10deg);
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-gallery-200 selection:text-black pb-16 md:pb-0 bg-[#f8f9fa]">
+<body class="min-h-screen flex flex-col justify-between selection:bg-gallery-300 selection:text-black pb-16 md:pb-0">
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gallery-200 transition-all duration-300 shadow-sm">
+    <header class="sticky top-0 z-40 silver-wave-bg border-b border-gallery-200 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <div class="cursor-pointer active:scale-95 transition-transform" onclick="resetView()">
                 <h1 class="text-xl sm:text-2xl font-light tracking-[0.2em] gallery-gradient-text uppercase">Seobin's Gallery</h1>
-                <p class="text-[9px] tracking-[0.25em] text-gallery-500 uppercase -mt-0.5">정서빈 ART COLLECTION</p>
+                <p class="text-[9px] tracking-[0.25em] text-gallery-600 uppercase -mt-0.5">정서빈 Silver Wave Collection</p>
             </div>
 
             <!-- PC Actions -->
             <div class="hidden md:flex items-center gap-3">
-                <button onclick="handleUploadClick()" class="flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest border border-gallery-300 text-gallery-800 hover:bg-gallery-900 hover:text-white transition-all rounded-sm">
+                <button onclick="handleUploadClick()" class="flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest border border-gallery-400 text-gallery-800 hover:bg-gallery-900 hover:text-white transition-all rounded-sm shadow-sm">
                     <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                     <span>작품 등록</span>
                 </button>
@@ -114,7 +120,7 @@
             
             <!-- Mobile Quick Buttons -->
             <div class="md:hidden flex items-center gap-2">
-                <button onclick="handleUploadClick()" class="p-2 text-gallery-800 border border-gallery-300 rounded-sm active:bg-gallery-100">
+                <button onclick="handleUploadClick()" class="p-2 text-gallery-800 border border-gallery-400 rounded-sm active:bg-gallery-200 bg-white/50">
                     <i data-lucide="plus" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -123,13 +129,13 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12 flex-grow w-full space-y-12 md:space-y-16">
 
-        <!-- Selected Highlights (1 col x 3 rows) -->
+        <!-- Selected Highlights (1 col x 3 rows) - 고해상도 선명한 표시 적용 -->
         <section>
             <div class="flex items-center justify-between mb-4 md:mb-6">
                 <h2 class="text-xs uppercase tracking-[0.25em] text-gallery-700 font-semibold flex items-center gap-2">
-                    <span class="w-6 md:w-8 h-[1px] bg-gallery-400 inline-block"></span> Selected Highlights
+                    <span class="w-6 md:w-8 h-[1px] bg-gallery-500 inline-block"></span> Selected Highlights
                 </h2>
-                <span class="text-xs font-light text-gallery-500">주요 수작 콜렉션</span>
+                <span class="text-xs font-light text-gallery-600">주요 수작 콜렉션 (High-Res)</span>
             </div>
 
             <div id="mainHighlightsGrid" class="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
@@ -138,8 +144,8 @@
         </section>
 
         <!-- Artist Profile & Statement -->
-        <section id="artistBioSection" class="border-t border-gallery-200 pt-10">
-            <div class="bg-white border border-gallery-200 p-6 md:p-8 rounded-sm relative overflow-hidden shadow-sm">
+        <section id="artistBioSection" class="border-t border-gallery-300 pt-10">
+            <div class="silver-wave-bg border border-gallery-300 p-6 md:p-8 rounded-sm relative overflow-hidden shadow-md">
                 <div id="editBioBtnArea" class="absolute top-4 right-4">
                     <!-- Dynamic Edit Button for Seobin -->
                 </div>
@@ -147,1050 +153,4 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
                     <!-- Photo Frame with Fallback Image -->
                     <div class="flex justify-center">
-                        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-gallery-300 shadow-lg bg-gallery-100 flex items-center justify-center p-1">
-                            <img id="bioPhoto" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="정서빈 작가" 
-                                 onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80'"
-                                 class="w-full h-full object-cover object-center rounded-full transition-all duration-300">
-                        </div>
-                    </div>
-
-                    <!-- Bio Text & Career -->
-                    <div class="md:col-span-2 space-y-4 text-center md:text-left">
-                        <div>
-                            <span class="text-[10px] uppercase tracking-[0.25em] text-gallery-500 block font-sans">Fine Artist</span>
-                            <h2 id="bioName" class="text-xl md:text-2xl font-light text-gallery-900 tracking-wider">정서빈 (Jung Seobin)</h2>
-                        </div>
-
-                        <p id="bioStatement" class="text-xs md:text-sm text-gallery-700 leading-relaxed font-light font-sans bg-gallery-50 p-4 border-l-2 border-gallery-400 rounded-r-sm shadow-inner">
-                            "은빛 입자와 깊은 질감으로 조율하는 침묵과 빛의 울림. 캔버스 위에 시간의 궤적을 겹겹이 쌓아 올려 관람객에게 내면적 고요와 형이상학적 미학을 선사합니다."
-                        </p>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans text-gallery-600 pt-1">
-                            <div class="bg-gallery-50 p-3 border border-gallery-200 rounded-sm">
-                                <h4 class="text-gallery-900 font-semibold mb-1 border-b border-gallery-200 pb-1 text-[11px] uppercase tracking-wider">주요 연혁 및 학력</h4>
-                                <ul id="bioCareerList" class="space-y-1 text-[11px] font-light text-gallery-700">
-                                    <li>• 홍익대학교 미술대학 회화과 졸업</li>
-                                    <li>• 개인전 6회 (서울, 부산, 파리)</li>
-                                    <li>• 현대 미술 유화&아크릴 신진작가상 수상</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gallery-50 p-3 border border-gallery-200 rounded-sm">
-                                <h4 class="text-gallery-900 font-semibold mb-1 border-b border-gallery-200 pb-1 text-[11px] uppercase tracking-wider">대표 전시 및 소장</h4>
-                                <ul id="bioExhibitionsList" class="space-y-1 text-[11px] font-light text-gallery-700">
-                                    <li>• 2026 서울 아트페어 초대전</li>
-                                    <li>• 2025 은빛 울림의 공간 갤러리 기획전</li>
-                                    <li>• 국립현대미술관 외 다수 소장</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Yearly Archive -->
-        <section class="border-t border-gallery-200 pt-10">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8">
-                <div>
-                    <h2 class="text-lg md:text-xl font-light tracking-wider gallery-gradient-text">Yearly Archive</h2>
-                    <p class="text-[11px] text-gallery-500 mt-0.5">연도별 전체 작품 모음</p>
-                </div>
-
-                <div id="yearFilters" class="flex overflow-x-auto no-scrollbar gap-2 py-1 text-xs -mx-4 px-4 md:mx-0 md:px-0">
-                    <!-- Filters Dynamic Render -->
-                </div>
-            </div>
-
-            <div id="yearlyArchiveGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
-                <!-- JS Dynamic Render -->
-            </div>
-        </section>
-
-        <!-- Guestbook Section -->
-        <section id="guestbookSection" class="border-t border-gallery-200 pt-10 pb-6">
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-6">
-                    <h2 class="text-lg md:text-xl font-light tracking-widest text-gallery-900 uppercase">Guestbook & Contact</h2>
-                    <p class="text-[11px] text-gallery-500 mt-1">작품 소장 문의나 감상평을 서빈 작가에게 전달해 주세요.</p>
-                </div>
-
-                <form id="messageForm" onsubmit="handleMessageSubmit(event)" class="space-y-3 mb-8 bg-white p-4 sm:p-6 border border-gallery-200 rounded-sm shadow-sm">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <input type="text" id="msgName" placeholder="성함 / Name" required class="bg-gallery-50 border border-gallery-200 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-gallery-500 text-gallery-900">
-                        <input type="email" id="msgEmail" placeholder="이메일 / Email (선택)" class="bg-gallery-50 border border-gallery-200 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-gallery-500 text-gallery-900">
-                    </div>
-                    <textarea id="msgContent" rows="3" placeholder="메시지를 남겨주세요..." required class="w-full bg-gallery-50 border border-gallery-200 text-xs p-3.5 rounded-sm focus:outline-none focus:border-gallery-500 text-gallery-900 resize-none"></textarea>
-                    <div class="text-right">
-                        <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 transition-all text-xs uppercase tracking-widest font-semibold rounded-sm active:opacity-90 shadow-sm">
-                            메시지 전송
-                        </button>
-                    </div>
-                </form>
-
-                <div id="messagesList" class="space-y-3">
-                    <!-- Dynamic Messages -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Mobile Navigation -->
-    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gallery-200 z-40 px-4 py-2.5 flex justify-around items-center text-[10px] text-gallery-600 shadow-lg">
-        <button onclick="resetView()" class="flex flex-col items-center gap-1 active:text-black">
-            <i data-lucide="image" class="w-5 h-5"></i>
-            <span>갤러리</span>
-        </button>
-        <button onclick="handleUploadClick()" class="flex flex-col items-center gap-1 active:text-black">
-            <i data-lucide="plus-circle" class="w-5 h-5"></i>
-            <span>작품 등록</span>
-        </button>
-        <button onclick="scrollToGuestbook()" class="flex flex-col items-center gap-1 active:text-black">
-            <i data-lucide="message-square" class="w-5 h-5"></i>
-            <span>방명록</span>
-        </button>
-        <button onclick="handleMobileAuthClick()" class="flex flex-col items-center gap-1 active:text-black">
-            <div id="mobileUserAvatar" class="w-5 h-5 rounded-full overflow-hidden border border-gallery-400 hidden">
-                <img id="mobileAvatarImg" src="" class="w-full h-full object-cover">
-            </div>
-            <i id="mobileUserIcon" data-lucide="user" class="w-5 h-5"></i>
-            <span id="mobileAuthLabel">로그인</span>
-        </button>
-    </nav>
-
-    <!-- Footer -->
-    <footer class="border-t border-gallery-200 py-8 text-center text-[11px] text-gallery-500 bg-white mt-12">
-        <p>&copy; 2026 Seobin's Gallery. All rights reserved.</p>
-        <p class="mt-0.5 text-[10px] text-gallery-400">Fine Art & Modern Aesthetics • Vercel & Supabase Ready</p>
-    </footer>
-
-    <!-- MODALS -->
-
-    <!-- Edit Profile Modal (For Seobin) -->
-    <div id="editBioModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white border border-gallery-200 w-full max-w-lg p-6 rounded-sm relative max-h-[85vh] overflow-y-auto shadow-2xl">
-            <button onclick="closeModal('editBioModal')" class="absolute top-4 right-4 text-gallery-400 hover:text-black p-1">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <h3 class="text-base font-light text-gallery-900 uppercase tracking-widest mb-4 border-b border-gallery-200 pb-2">작가 프로필 수정</h3>
-
-            <form onsubmit="handleSaveBio(event)" class="space-y-3.5 text-xs">
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작가 성명 / 영문명</label>
-                    <input type="text" id="editBioName" required class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">프로필 사진 파일 (선택)</label>
-                    <input type="file" id="editBioPhotoFile" accept="image/*" class="w-full bg-gallery-50 border border-gallery-200 p-2 text-gallery-700 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-gallery-200 file:text-gallery-800">
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">Artist Statement (작가 철학)</label>
-                    <textarea id="editBioStatement" rows="3" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">연혁 및 학력 (줄바꿈 구분)</label>
-                    <textarea id="editBioCareer" rows="3" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">전시 및 소장 (줄바꿈 구분)</label>
-                    <textarea id="editBioExhibitions" rows="3" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
-                </div>
-
-                <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal('editBioModal')" class="px-4 py-2 border border-gallery-300 text-gallery-600 text-xs">취소</button>
-                    <button type="submit" class="px-5 py-2 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold text-xs active:opacity-95">저장하기</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Upload Modal -->
-    <div id="uploadModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-white border-t sm:border border-gallery-200 w-full max-w-lg p-5 sm:p-6 rounded-t-lg sm:rounded-sm relative max-h-[85vh] overflow-y-auto shadow-2xl">
-            <button onclick="closeModal('uploadModal')" class="absolute top-4 right-4 text-gallery-400 hover:text-black p-1">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <h3 class="text-base font-light text-gallery-900 uppercase tracking-widest mb-4 border-b border-gallery-200 pb-2">새 작품 등록</h3>
-
-            <form id="uploadForm" onsubmit="handleUploadArtwork(event)" class="space-y-3 text-xs">
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작품명 (한글) *</label>
-                    <input type="text" id="artTitle" required placeholder="예: 빛의 묵시록" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">제작 연도 *</label>
-                        <input type="number" id="artYear" required min="2000" max="2030" value="2026" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">가격 (KRW) *</label>
-                        <input type="text" id="artPrice" required placeholder="예: ₩ 4,500,000" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작품 이미지 URL *</label>
-                    <input type="url" id="artImgUrl" required placeholder="https://images.unsplash.com/..." class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작업 과정 영상 URL (선택)</label>
-                    <input type="url" id="artVideoUrl" placeholder="https://www.youtube.com/embed/..." class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">크기 및 재료</label>
-                        <input type="text" id="artMeta" placeholder="예: 130.3 x 97.0 cm (60호), 캔버스에 유채" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">판매 상태</label>
-                        <select id="artStatus" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                            <option value="available">판매 가능</option>
-                            <option value="sold">판매 완료 (Sold Out)</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-[10px] uppercase tracking-wider text-gallery-500 mb-1">작품 설명 (작가 노트)</label>
-                    <textarea id="artDesc" rows="3" placeholder="작품의 철학이나 작업 비하인드..." class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900 resize-none"></textarea>
-                </div>
-
-                <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal('uploadModal')" class="px-4 py-2 border border-gallery-300 hover:bg-gallery-100 text-gallery-600 text-xs">취소</button>
-                    <button type="submit" class="px-5 py-2 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold text-xs active:opacity-95">등록 완료</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Artwork Detail Modal -->
-    <div id="detailModal" class="fixed inset-0 bg-black/40 backdrop-blur-md z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-white border-t sm:border border-gallery-200 w-full max-w-3xl p-5 sm:p-7 rounded-t-lg sm:rounded-sm relative max-h-[90vh] overflow-y-auto shadow-2xl">
-            <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 text-gallery-400 hover:text-black z-10 p-1">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 items-start">
-                <div class="relative bg-gallery-100 rounded-sm overflow-hidden border border-gallery-200">
-                    <img id="modalImg" src="" alt="" class="w-full h-auto max-h-[350px] sm:max-h-[420px] object-contain mx-auto">
-                    <div id="modalSoldBadge" class="hidden absolute top-4 right-4 sold-out-stamp px-3 py-1 text-xs font-bold shadow-sm">
-                        SOLD OUT
-                    </div>
-                </div>
-
-                <div class="space-y-4">
-                    <div>
-                        <div id="modalYear" class="text-[10px] uppercase tracking-widest text-gallery-500 font-sans mb-1"></div>
-                        <h2 id="modalTitle" class="text-xl sm:text-2xl font-normal text-gallery-900"></h2>
-                    </div>
-
-                    <div class="bg-gallery-50 border border-gallery-200 p-3.5 rounded-sm space-y-2 font-sans text-xs">
-                        <div class="flex justify-between items-center border-b border-gallery-200 pb-2">
-                            <span class="text-gallery-500 text-[11px]">규격 & 소재</span>
-                            <span id="modalMeta" class="text-gallery-800 font-light text-right"></span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gallery-200 pb-2">
-                            <span class="text-gallery-500 text-[11px]">제작 연도</span>
-                            <span id="modalYearDetail" class="text-gallery-800 font-light"></span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gallery-500 text-[11px]">소장 가격</span>
-                            <span id="modalPrice" class="text-gallery-900 font-semibold text-sm"></span>
-                        </div>
-                    </div>
-
-                    <div class="space-y-1">
-                        <span class="text-[10px] uppercase tracking-widest text-gallery-500 block font-sans">Artist Note</span>
-                        <p id="modalDesc" class="text-xs text-gallery-700 leading-relaxed font-light bg-gallery-50 p-2.5 rounded-sm border border-gallery-200"></p>
-                    </div>
-
-                    <div id="modalVideoSection" class="hidden pt-1 border-t border-gallery-200">
-                        <button id="toggleVideoBtn" onclick="toggleProcessVideo()" class="w-full flex items-center justify-between p-2.5 bg-gallery-100 border border-gallery-200 hover:border-gallery-400 rounded-sm text-xs text-gallery-800 transition-all">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="play-circle" class="w-4 h-4 text-gallery-600"></i>
-                                <span>작업 과정 영상 보기</span>
-                            </span>
-                            <i id="videoChevron" data-lucide="chevron-down" class="w-4 h-4 text-gallery-500 transition-transform duration-300"></i>
-                        </button>
-                        
-                        <div id="modalVideoContainer" class="hidden mt-2 aspect-video w-full bg-black rounded-sm overflow-hidden border border-gallery-200 transition-all">
-                            <div id="modalVideoWrapper" class="w-full h-full"></div>
-                        </div>
-                    </div>
-
-                    <div class="pt-1">
-                        <button onclick="inquireArtwork()" class="w-full py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 text-xs uppercase tracking-widest font-semibold transition-all active:opacity-95 rounded-sm shadow-sm">
-                            작품 소장 및 구입 문의
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Auth Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white border border-gallery-200 w-full max-w-md p-6 rounded-sm relative shadow-2xl">
-            <button type="button" onclick="closeAuthModal()" class="absolute top-4 right-4 text-gallery-400 hover:text-black p-2.5 rounded-full cursor-pointer z-10 hover:bg-gallery-100 transition-all">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div class="flex border-b border-gallery-200 mb-5 pr-8">
-                <button id="tabLogin" onclick="switchAuthTab('login')" class="flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-gallery-900 text-gallery-900 font-semibold">로그인</button>
-                <button id="tabSignup" onclick="switchAuthTab('signup')" class="flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-gallery-400 hover:text-gallery-800">회원가입</button>
-            </div>
-
-            <!-- Login Form -->
-            <form id="loginForm" onsubmit="handleAuth(event, 'login')" class="space-y-3.5 text-xs">
-                <div>
-                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">성명 / 작가명 *</label>
-                    <input type="text" id="loginName" required placeholder="예: 정서빈" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div>
-                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">비밀번호 *</label>
-                    <input type="password" required placeholder="••••••••" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <button type="submit" class="w-full py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold uppercase tracking-widest mt-2 active:opacity-95 shadow-sm">로그인</button>
-            </form>
-
-            <!-- Signup Form -->
-            <form id="signupForm" onsubmit="handleAuth(event, 'signup')" class="space-y-3.5 text-xs hidden">
-                <div>
-                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">성명 / 작가명 *</label>
-                    <input type="text" id="signupName" required placeholder="예: 정서빈" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div>
-                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">비밀번호 *</label>
-                    <input type="password" required placeholder="••••••••" class="w-full bg-gallery-50 border border-gallery-200 p-2.5 rounded-sm focus:border-gallery-500 focus:outline-none text-gallery-900">
-                </div>
-                <div>
-                    <label class="block uppercase tracking-wider text-gallery-500 mb-1 text-[10px]">프로필 사진 파일 선택 (선택)</label>
-                    <input type="file" id="signupPhotoFile" accept="image/*" class="w-full bg-gallery-50 border border-gallery-200 p-2 rounded-sm text-gallery-700 text-xs file:mr-3 file:py-1 file:px-2 file:rounded-sm file:border-0 file:text-[10px] file:bg-gallery-200 file:text-gallery-800 cursor-pointer">
-                </div>
-                <button type="submit" class="w-full py-2.5 bg-gallery-900 text-white hover:bg-gallery-800 font-semibold uppercase tracking-widest mt-2 active:opacity-95 shadow-sm">가입 완료</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Custom Confirm Modal (Replacing alert/confirm) -->
-    <div id="confirmModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white border border-gallery-200 w-full max-w-sm p-5 rounded-sm text-center shadow-2xl">
-            <h4 id="confirmMessage" class="text-xs font-sans text-gallery-800 mb-5 leading-relaxed">확인하시겠습니까?</h4>
-            <div class="flex justify-center gap-3">
-                <button id="confirmCancelBtn" class="px-4 py-1.5 border border-gallery-300 text-gallery-600 text-xs">취소</button>
-                <button id="confirmOkBtn" class="px-5 py-1.5 bg-gallery-900 text-white font-semibold text-xs active:opacity-95 shadow-sm">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:translate-x-0 bg-gallery-900 text-white px-4 py-2.5 rounded-sm shadow-xl text-xs uppercase tracking-widest font-semibold transition-all duration-300 transform translate-y-20 opacity-0 z-50 whitespace-nowrap">
-        알림 메시지
-    </div>
-
-    <script>
-        // Supabase Client Instance
-        let supabaseClient = null;
-
-        // Artist Profile Data
-        let artistProfile = {
-            name: '정서빈 (Jung Seobin)',
-            photoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80',
-            statement: '"은빛 입자와 깊은 질감으로 조율하는 침묵과 빛의 울림. 캔버스 위에 시간의 궤적을 겹겹이 쌓아 올려 관람객에게 내면적 고요와 형이상학적 미학을 선사합니다."',
-            career: ['• 홍익대학교 미술대학 회화과 졸업', '• 개인전 6회 (서울, 부산, 파리)', '• 현대 미술 유화&아크릴 신진작가상 수상'],
-            exhibitions: ['• 2026 서울 아트페어 초대전', '• 2025 은빛 울림의 공간 갤러리 기획전', '• 국립현대미술관 외 다수 소장']
-        };
-
-        // Default Sample Artworks
-        let artworks = [
-            {
-                id: 1,
-                title: '빛의 묵시록',
-                year: 2026,
-                price: '₩ 4,800,000',
-                imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
-                videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                meta: '130.3 x 97.0 cm (60호), 캔버스에 바다 유화 & 실버 잎',
-                description: '거친 바다 수평선 위로 스며드는 은빛 해일과 파도의 입체적 텍스처를 스파출라 유화 기법으로 담아낸 작품입니다.',
-                isSold: false
-            },
-            {
-                id: 2,
-                title: '푸른 침묵의 궤적',
-                year: 2026,
-                price: '₩ 3,500,000',
-                imageUrl: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1000&q=80',
-                videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                meta: '100.0 x 80.3 cm (40호), 믹스드 미디어',
-                description: '새벽녘 차가운 바람의 흔적과 고요한 정신적 영역을 은회색 그라데이션으로 형상화했습니다.',
-                isSold: true
-            },
-            {
-                id: 3,
-                title: '고요한 공명 I',
-                year: 2025,
-                price: '₩ 5,200,000',
-                imageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80',
-                videoUrl: '',
-                meta: '162.2 x 130.3 cm (100호), 캔버스에 유채 (숲속 풍경)',
-                description: '깊은 숲속 안개 사이로 비치는 햇살과 정적 속 나뭇잎들의 울림을 묵직한 톤으로 담아낸 풍경화입니다.',
-                isSold: false
-            },
-            {
-                id: 4,
-                title: '은빛 메아리',
-                year: 2025,
-                price: '₩ 2,900,000',
-                imageUrl: 'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=1000&q=80',
-                videoUrl: '',
-                meta: '91.0 x 72.7 cm (30호), 형이상학 포스터 아크릴',
-                description: '기하학적 곡선과 차원 너머의 공간감을 은빛 조형언어로 풀어낸 형이상학적 미술 포스터 작품입니다.',
-                isSold: false
-            },
-            {
-                id: 5,
-                title: '시간의 파편들',
-                year: 2024,
-                price: '₩ 6,000,000',
-                imageUrl: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80',
-                videoUrl: '',
-                meta: '145.5 x 112.1 cm (80호), 피카소 풍 큐비즘 아크릴 및 믹스드 미디어',
-                description: '피카소의 입체주의 시각을 빌려, 시간과 시계의 구상을 다각도에서 해체하고 은빛과 원색의 조화로 재해석한 입체 아크릴 작품입니다.',
-                isSold: true
-            },
-            {
-                id: 6,
-                title: '기억의 지평선',
-                year: 2024,
-                price: '₩ 3,800,000',
-                imageUrl: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1000&q=80',
-                videoUrl: '',
-                meta: '116.8 x 91.0 cm (50호), 오일 페인팅',
-                description: '지평선 너머 아스라히 느껴지는 옛 영감과의 재회를 아날로그적 밀도로 채워 넣었습니다.',
-                isSold: false
-            }
-        ];
-
-        let messages = [
-            { id: 1, name: '김미경 갤러리스트', content: '빛의 묵시록 질감이 오프라인 관람 시 정말 은빛 감동을 주는군요. 소장 문의 남깁니다.', date: '2026.03.15' },
-            { id: 2, name: '이동현 컬렉터', content: '서빈 작가님의 프라이빗 전시 개막을 축하드립니다. 늘 응원하겠습니다!', date: '2026.03.18' }
-        ];
-
-        let currentUser = null;
-        let selectedYear = '2026';
-        let currentActiveArtwork = null;
-
-        window.onload = async function() {
-            lucide.createIcons();
-            initSupabase();
-            await fetchFromSupabase();
-            
-            const availableYears = [...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
-            if (availableYears.length > 0 && !availableYears.includes(2026)) {
-                selectedYear = availableYears[0].toString();
-            }
-
-            renderHighlights();
-            renderBioUI();
-            renderYearFilters();
-            renderYearlyArchive();
-            renderMessages();
-        };
-
-        function isSeobinAuthor() {
-            if (!currentUser) return false;
-            const normalized = currentUser.name.trim().toLowerCase();
-            return normalized === '정서빈' || normalized === '서빈' || normalized === 'seobin';
-        }
-
-        function initSupabase() {
-            const url = localStorage.getItem('sb_url');
-            const key = localStorage.getItem('sb_key');
-            if (url && key && window.supabase) {
-                try {
-                    supabaseClient = window.supabase.createClient(url, key);
-                } catch(e) {
-                    console.error('Supabase Init Fail', e);
-                }
-            }
-        }
-
-        async function fetchFromSupabase() {
-            if (!supabaseClient) return;
-            try {
-                const { data: artData, error: artErr } = await supabaseClient
-                    .from('artworks')
-                    .select('*')
-                    .order('created_at', { ascending: false });
-
-                if (!artErr && artData && artData.length > 0) {
-                    artworks = artData.map(item => ({
-                        id: item.id,
-                        title: item.title,
-                        year: item.year,
-                        price: item.price,
-                        imageUrl: item.image_url,
-                        videoUrl: item.video_url || '',
-                        meta: item.meta || '',
-                        description: item.description || '',
-                        isSold: item.is_sold || false
-                    }));
-                }
-
-                const { data: msgData, error: msgErr } = await supabaseClient
-                    .from('messages')
-                    .select('*')
-                    .order('created_at', { ascending: false });
-
-                if (!msgErr && msgData && msgData.length > 0) {
-                    messages = msgData.map(m => ({
-                        id: m.id,
-                        name: m.name,
-                        content: m.content,
-                        date: m.date
-                    }));
-                }
-            } catch(e) {
-                console.error('Supabase fetch error:', e);
-            }
-        }
-
-        function renderBioUI() {
-            document.getElementById('bioName').innerText = artistProfile.name;
-            document.getElementById('bioStatement').innerText = artistProfile.statement;
-            
-            const photoEl = document.getElementById('bioPhoto');
-            if (photoEl) {
-                photoEl.src = artistProfile.photoUrl;
-                photoEl.onerror = function() {
-                    this.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80';
-                };
-            }
-
-            const careerList = document.getElementById('bioCareerList');
-            if (careerList) {
-                careerList.innerHTML = artistProfile.career.map(c => `<li>${c}</li>`).join('');
-            }
-
-            const exList = document.getElementById('bioExhibitionsList');
-            if (exList) {
-                exList.innerHTML = artistProfile.exhibitions.map(e => `<li>${e}</li>`).join('');
-            }
-
-            const editArea = document.getElementById('editBioBtnArea');
-            if (editArea) {
-                if (isSeobinAuthor()) {
-                    editArea.innerHTML = `
-                        <button onclick="openEditBioModal()" class="px-3 py-1.5 text-[11px] bg-gallery-100 border border-gallery-300 hover:border-gallery-500 text-gallery-800 transition-all rounded-sm flex items-center gap-1.5 shadow-sm">
-                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                            <span>프로필 수정</span>
-                        </button>
-                    `;
-                } else {
-                    editArea.innerHTML = '';
-                }
-            }
-            lucide.createIcons();
-        }
-
-        function openEditBioModal() {
-            document.getElementById('editBioName').value = artistProfile.name;
-            document.getElementById('editBioStatement').value = artistProfile.statement;
-            document.getElementById('editBioCareer').value = artistProfile.career.join('\n');
-            document.getElementById('editBioExhibitions').value = artistProfile.exhibitions.join('\n');
-            document.getElementById('editBioModal').classList.remove('hidden');
-        }
-
-        function handleSaveBio(e) {
-            e.preventDefault();
-            artistProfile.name = document.getElementById('editBioName').value.trim();
-            artistProfile.statement = document.getElementById('editBioStatement').value.trim();
-            
-            const careerText = document.getElementById('editBioCareer').value.trim();
-            artistProfile.career = careerText ? careerText.split('\n').filter(l => l.trim() !== '') : [];
-
-            const exText = document.getElementById('editBioExhibitions').value.trim();
-            artistProfile.exhibitions = exText ? exText.split('\n').filter(l => l.trim() !== '') : [];
-
-            const fileInput = document.getElementById('editBioPhotoFile');
-            if (fileInput && fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(evt) {
-                    artistProfile.photoUrl = evt.target.result;
-                    renderBioUI();
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                renderBioUI();
-            }
-
-            closeModal('editBioModal');
-            showToast('작가 프로필이 저장되었습니다.');
-        }
-
-        function resetView() {
-            const years = [...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
-            selectedYear = years.includes(2026) ? '2026' : (years[0] ? years[0].toString() : 'ALL');
-            renderYearFilters();
-            renderYearlyArchive();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function renderHighlights() {
-            const grid = document.getElementById('mainHighlightsGrid');
-            if (!grid) return;
-            const highlights = artworks.slice(0, 3);
-
-            grid.innerHTML = highlights.map(art => `
-                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-white border border-gallery-200 hover:border-gallery-400 transition-all rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-md">
-                    <div class="relative aspect-[16/10] md:w-1/2 overflow-hidden bg-gallery-100">
-                        <img src="${art.imageUrl}" alt="${art.title}" 
-                             onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80'"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        ${art.isSold ? `
-                            <div class="absolute inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center">
-                                <span class="sold-out-stamp px-3 py-1 text-xs font-bold shadow-sm">SOLD OUT</span>
-                            </div>
-                        ` : ''}
-                        <div class="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm text-[10px] px-2.5 py-0.5 text-gallery-700 font-sans tracking-widest border border-gallery-200">
-                            ${art.year}
-                        </div>
-                    </div>
-                    <div class="p-5 md:w-1/2 flex flex-col justify-center space-y-3">
-                        <span class="text-[10px] uppercase tracking-widest text-gallery-500 font-sans">Featured Masterpiece</span>
-                        <h3 class="text-lg md:text-xl font-normal text-gallery-900 group-hover:text-black transition-colors">${art.title}</h3>
-                        <p class="text-xs text-gallery-600 font-sans font-light leading-relaxed line-clamp-3">${art.description || art.meta}</p>
-                        <div class="pt-2 text-[11px] text-gallery-800 font-sans flex items-center gap-1 font-medium">
-                            <span>자세히 감상하기</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-            lucide.createIcons();
-        }
-
-        function renderYearFilters() {
-            const container = document.getElementById('yearFilters');
-            if (!container) return;
-
-            const years = [...new Set(artworks.map(a => a.year))].sort((a,b) => b - a);
-            const allTabs = [...years.map(y => y.toString()), 'ALL'];
-
-            container.innerHTML = allTabs.map(yr => {
-                const isActive = (yr === selectedYear.toString());
-                return `
-                    <button onclick="filterByYear('${yr}')" 
-                        class="px-3.5 py-1.5 text-[11px] font-sans transition-all whitespace-nowrap rounded-sm border ${
-                            isActive 
-                            ? 'bg-gallery-900 text-white border-gallery-900 font-semibold shadow-sm' 
-                            : 'bg-white text-gallery-600 border-gallery-200 hover:border-gallery-400'
-                        }">
-                        ${yr === 'ALL' ? '전체 보기' : yr + '년 작품'}
-                    </button>
-                `;
-            }).join('');
-        }
-
-        function filterByYear(yr) {
-            selectedYear = yr;
-            renderYearFilters();
-            renderYearlyArchive();
-        }
-
-        function renderYearlyArchive() {
-            const grid = document.getElementById('yearlyArchiveGrid');
-            if (!grid) return;
-
-            let filtered = artworks;
-            if (selectedYear !== 'ALL') {
-                filtered = artworks.filter(a => a.year.toString() === selectedYear.toString());
-            }
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-10 text-xs text-gallery-500 font-sans">${selectedYear}년도 전시 작품이 존재하지 않습니다.</div>`;
-                return;
-            }
-
-            grid.innerHTML = filtered.map(art => `
-                <div onclick="openArtworkDetail(${art.id})" class="group cursor-pointer bg-white border border-gallery-200 hover:border-gallery-400 transition-all rounded-sm overflow-hidden flex flex-col shadow-sm hover:shadow-md">
-                    <div class="relative aspect-square w-full bg-gallery-100 overflow-hidden">
-                        <img src="${art.imageUrl}" alt="${art.title}" 
-                             onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80'"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        ${art.isSold ? `
-                            <div class="absolute inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center">
-                                <span class="sold-out-stamp px-2 py-0.5 text-[9px] font-bold shadow-sm">SOLD OUT</span>
-                            </div>
-                        ` : ''}
-                    </div>
-                    <div class="p-3">
-                        <h4 class="text-xs font-normal text-gallery-900 group-hover:text-black truncate">${art.title}</h4>
-                        <div class="flex items-center justify-between mt-1 text-[10px] text-gallery-500 font-sans">
-                            <span>${art.year}</span>
-                            <span class="font-medium text-gallery-800">${art.price}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-            lucide.createIcons();
-        }
-
-        function openArtworkDetail(id) {
-            const art = artworks.find(a => a.id === id);
-            if (!art) return;
-            currentActiveArtwork = art;
-
-            document.getElementById('modalTitle').innerText = art.title;
-            document.getElementById('modalYear').innerText = art.year + ' COLLECTION';
-            document.getElementById('modalYearDetail').innerText = art.year + '년';
-            document.getElementById('modalMeta').innerText = art.meta || '미상';
-            document.getElementById('modalPrice').innerText = art.price || '가격 문의';
-            document.getElementById('modalDesc').innerText = art.description || '작가의 미학적 영감이 담긴 오리지널 작품입니다.';
-            
-            const imgEl = document.getElementById('modalImg');
-            imgEl.src = art.imageUrl;
-            imgEl.onerror = function() {
-                this.src = 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80';
-            };
-
-            const soldBadge = document.getElementById('modalSoldBadge');
-            if (art.isSold) {
-                soldBadge.classList.remove('hidden');
-            } else {
-                soldBadge.classList.add('hidden');
-            }
-
-            const videoSec = document.getElementById('modalVideoSection');
-            const videoContainer = document.getElementById('modalVideoContainer');
-            const videoWrapper = document.getElementById('modalVideoWrapper');
-            const chevron = document.getElementById('videoChevron');
-
-            videoContainer.classList.add('hidden');
-            if (chevron) chevron.style.transform = 'rotate(0deg)';
-            videoWrapper.innerHTML = '';
-
-            if (art.videoUrl && art.videoUrl.trim() !== '') {
-                videoSec.classList.remove('hidden');
-            } else {
-                videoSec.classList.add('hidden');
-            }
-
-            document.getElementById('detailModal').classList.remove('hidden');
-            lucide.createIcons();
-        }
-
-        function toggleProcessVideo() {
-            if (!currentActiveArtwork || !currentActiveArtwork.videoUrl) return;
-            
-            const videoContainer = document.getElementById('modalVideoContainer');
-            const videoWrapper = document.getElementById('modalVideoWrapper');
-            const chevron = document.getElementById('videoChevron');
-            
-            if (videoContainer.classList.contains('hidden')) {
-                videoContainer.classList.remove('hidden');
-                if (chevron) chevron.style.transform = 'rotate(180deg)';
-                
-                const url = currentActiveArtwork.videoUrl;
-                if (url.includes('youtube.com') || url.includes('youtu.be')) {
-                    videoWrapper.innerHTML = `<iframe src="${url}" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-                } else {
-                    videoWrapper.innerHTML = `<video src="${url}" controls autoplay class="w-full h-full object-cover"></video>`;
-                }
-            } else {
-                videoContainer.classList.add('hidden');
-                if (chevron) chevron.style.transform = 'rotate(0deg)';
-                videoWrapper.innerHTML = '';
-            }
-        }
-
-        function inquireArtwork() {
-            if (!currentActiveArtwork) return;
-            closeModal('detailModal');
-            scrollToGuestbook();
-            const msgInput = document.getElementById('msgContent');
-            if (msgInput) {
-                msgInput.value = `[작품 소장 문의] '${currentActiveArtwork.title}' (${currentActiveArtwork.year}년작) 소장 가능 여부 및 구매 관련 문의드립니다.`;
-                msgInput.focus();
-            }
-        }
-
-        function handleUploadClick() {
-            if (!currentUser) {
-                showToast('정서빈 작가 로그인 후 작품 등록이 가능합니다.');
-                openAuthModal();
-                return;
-            }
-            if (!isSeobinAuthor()) {
-                showToast('작품 등록은 작가(정서빈) 계정만 가능합니다.');
-                return;
-            }
-            document.getElementById('uploadModal').classList.remove('hidden');
-        }
-
-        async function handleUploadArtwork(e) {
-            e.preventDefault();
-            if (!isSeobinAuthor()) {
-                showToast('권한이 없습니다.');
-                return;
-            }
-
-            const title = document.getElementById('artTitle').value.trim();
-            const year = parseInt(document.getElementById('artYear').value);
-            const price = document.getElementById('artPrice').value.trim();
-            const imageUrl = document.getElementById('artImgUrl').value.trim();
-            const videoUrl = document.getElementById('artVideoUrl').value.trim();
-            const meta = document.getElementById('artMeta').value.trim();
-            const status = document.getElementById('artStatus').value;
-            const description = document.getElementById('artDesc').value.trim();
-
-            const newArt = {
-                title,
-                year,
-                price,
-                imageUrl,
-                videoUrl,
-                meta,
-                description,
-                isSold: status === 'sold'
-            };
-
-            if (supabaseClient) {
-                const { data, error } = await supabaseClient
-                    .from('artworks')
-                    .insert([{
-                        title,
-                        year,
-                        price,
-                        image_url: imageUrl,
-                        video_url: videoUrl,
-                        meta,
-                        description,
-                        is_sold: status === 'sold'
-                    }])
-                    .select();
-
-                if (!error && data) {
-                    await fetchFromSupabase();
-                } else {
-                    newArt.id = Date.now();
-                    artworks.unshift(newArt);
-                }
-            } else {
-                newArt.id = Date.now();
-                artworks.unshift(newArt);
-            }
-
-            renderHighlights();
-            renderYearFilters();
-            renderYearlyArchive();
-
-            closeModal('uploadModal');
-            document.getElementById('uploadForm').reset();
-            showToast('새 작품이 정상적으로 등록되었습니다.');
-        }
-
-        function openAuthModal() {
-            document.getElementById('authModal').classList.remove('hidden');
-        }
-
-        function closeAuthModal() {
-            document.getElementById('authModal').classList.add('hidden');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-            if (id === 'detailModal') {
-                const videoWrapper = document.getElementById('modalVideoWrapper');
-                if (videoWrapper) videoWrapper.innerHTML = '';
-            }
-        }
-
-        function switchAuthTab(tab) {
-            const loginForm = document.getElementById('loginForm');
-            const signupForm = document.getElementById('signupForm');
-            const tabLogin = document.getElementById('tabLogin');
-            const tabSignup = document.getElementById('tabSignup');
-
-            if (tab === 'login') {
-                loginForm.classList.remove('hidden');
-                signupForm.classList.add('hidden');
-                tabLogin.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-gallery-900 text-gallery-900 font-semibold';
-                tabSignup.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-gallery-400 hover:text-gallery-800';
-            } else {
-                loginForm.classList.add('hidden');
-                signupForm.classList.remove('hidden');
-                tabSignup.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-gallery-900 text-gallery-900 font-semibold';
-                tabLogin.className = 'flex-1 py-2 text-xs uppercase tracking-widest border-b-2 border-transparent text-gallery-400 hover:text-gallery-800';
-            }
-        }
-
-        function handleAuth(e, type) {
-            e.preventDefault();
-            const fallbackPhoto = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80';
-            
-            if (type === 'login') {
-                const name = document.getElementById('loginName').value.trim();
-                currentUser = {
-                    name: name,
-                    photo: (name === '정서빈' || name === '서빈') ? artistProfile.photoUrl : fallbackPhoto
-                };
-                showToast(`${currentUser.name}님, 반갑습니다.`);
-            } else {
-                const name = document.getElementById('signupName').value.trim();
-                const fileInput = document.getElementById('signupPhotoFile');
-                
-                if (fileInput && fileInput.files && fileInput.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(evt) {
-                        currentUser = { name: name, photo: evt.target.result };
-                        updateUserUI();
-                        renderBioUI();
-                    };
-                    reader.readAsDataURL(fileInput.files[0]);
-                } else {
-                    currentUser = { name: name, photo: fallbackPhoto };
-                }
-                showToast(`${name}님 회원가입 및 로그인 완료!`);
-            }
-
-            closeAuthModal();
-            updateUserUI();
-            renderBioUI();
-        }
-
-        function updateUserUI() {
-            const userArea = document.getElementById('userProfileArea');
-            const mobileIcon = document.getElementById('mobileUserIcon');
-            const mobileAvatar = document.getElementById('mobileUserAvatar');
-            const mobileAvatarImg = document.getElementById('mobileAvatarImg');
-            const mobileAuthLabel = document.getElementById('mobileAuthLabel');
-
-            if (currentUser) {
-                userArea.innerHTML = `
-                    <div class="flex items-center gap-2 bg-gallery-100 border border-gallery-300 px-2.5 py-1 rounded-sm shadow-sm">
-                        <img src="${currentUser.photo}" class="w-6 h-6 rounded-full object-cover border border-gallery-400">
-                        <span class="text-xs text-gallery-800 font-sans">${currentUser.name}</span>
-                        <button onclick="handleLogout()" class="text-[10px] text-gallery-500 hover:text-gallery-900 ml-1 underline">로그아웃</button>
-                    </div>
-                `;
-
-                if (mobileIcon) mobileIcon.classList.add('hidden');
-                if (mobileAvatar) {
-                    mobileAvatar.classList.remove('hidden');
-                    mobileAvatarImg.src = currentUser.photo;
-                }
-                if (mobileAuthLabel) mobileAuthLabel.innerText = 'MY';
-            } else {
-                userArea.innerHTML = `
-                    <button id="authBtn" onclick="openAuthModal()" class="px-4 py-2 text-xs uppercase tracking-widest bg-gallery-900 border border-gallery-900 text-white hover:bg-gallery-800 transition-all rounded-sm shadow-sm">
-                        로그인 / 가입
-                    </button>
-                `;
-                if (mobileIcon) mobileIcon.classList.remove('hidden');
-                if (mobileAvatar) mobileAvatar.classList.add('hidden');
-                if (mobileAuthLabel) mobileAuthLabel.innerText = '로그인';
-            }
-        }
-
-        function handleLogout() {
-            currentUser = null;
-            updateUserUI();
-            renderBioUI();
-            showToast('로그아웃 되었습니다.');
-        }
-
-        function customConfirm(msg, onConfirm) {
-            const modal = document.getElementById('confirmModal');
-            const msgEl = document.getElementById('confirmMessage');
-            const okBtn = document.getElementById('confirmOkBtn');
-            const cancelBtn = document.getElementById('confirmCancelBtn');
-
-            msgEl.innerText = msg;
-            modal.classList.remove('hidden');
-
-            const handleOk = () => {
-                modal.classList.add('hidden');
-                okBtn.removeEventListener('click', handleOk);
-                cancelBtn.removeEventListener('click', handleCancel);
-                onConfirm();
-            };
-
-            const handleCancel = () => {
-                modal.classList.add('hidden');
-                okBtn.removeEventListener('click', handleOk);
-                cancelBtn.removeEventListener('click', handleCancel);
-            };
-
-            okBtn.addEventListener('click', handleOk);
-            cancelBtn.addEventListener('click', handleCancel);
-        }
-
-        function handleMobileAuthClick() {
-            if (currentUser) {
-                customConfirm(`${currentUser.name}님, 로그아웃 하시겠습니까?`, () => {
-                    handleLogout();
-                });
-            } else {
-                openAuthModal();
-            }
-        }
-
-        async function handleMessageSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('msgName').value.trim();
-            const content = document.getElementById('msgContent').value.trim();
-
-            const today = new Date();
-            const dateStr = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
-
-            if (supabaseClient) {
-                const { error } = await supabaseClient
-                    .from('messages')
-                    .insert([{ name, content, date: dateStr }]);
-
-                if (!error) {
-                    await fetchFromSupabase();
-                } else {
-                    messages.unshift({ id: Date.now(), name, content, date: dateStr });
-                }
-            } else {
-                messages.unshift({ id: Date.now(), name, content, date: dateStr });
-            }
-
-            renderMessages();
-            document.getElementById('messageForm').reset();
-            showToast('감사합니다. 메시지가 전달되었습니다.');
-        }
-
-        function renderMessages() {
-            const container = document.getElementById('messagesList');
-            if (!container) return;
-
-            container.innerHTML = messages.map(m => `
-                <div class="bg-white border border-gallery-200 p-3.5 rounded-sm font-sans shadow-sm">
-                    <div class="flex justify-between items-center mb-1.5">
-                        <span class="text-xs font-semibold text-gallery-900">${m.name}</span>
-                        <span class="text-[10px] text-gallery-400">${m.date}</span>
-                    </div>
-                    <p class="text-xs text-gallery-700 font-light leading-relaxed">${m.content}</p>
-                </div>
-            `).join('');
-        }
-
-        function scrollToGuestbook() {
-            const sec = document.getElementById('guestbookSection');
-            if (sec) {
-                sec.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            if (!toast) return;
-            toast.innerText = msg;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-    </script>
-</body>
-</html>
+                        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-gallery-400
